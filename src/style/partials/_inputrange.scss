@@ -1,0 +1,140 @@
+@import 'variables';
+
+$border-radius: 20px;
+
+$base: #071739;
+$shadow-color:  #274684;
+$lighter-shadow: rgba(#8c8c8c, .2);
+$gray: #8c8c8c;
+$lighter-gray: #f5f5f5;
+$time-line-width: 240px;
+$transition: .3s all ease;
+
+@mixin dragIndicator($property, $background, $z-index) {
+  #{$property}{
+      position: absolute;
+      top: 0;
+      z-index: $z-index;
+      width: 0;
+      height: 5px;
+      border-radius: 5px;
+      background: $background;
+      &:hover{
+        &::before{
+          opacity: 1;
+        }
+        &::after{
+          opacity: 1;
+        }
+      }
+      &::before{
+        opacity: 0;
+        content: attr(data-content);
+        display: block;
+        position: absolute;
+        top: -40px;
+        right: -23px;
+        width: 40px;
+        padding: 3px;
+        text-align: center;
+        color: $whiteColor;
+        background: $themePrimaryColor;
+        border-radius: $border-radius;
+        font-size: $font14;
+    }
+    // &::after{
+    //   opacity: 0;
+    //   content:'';
+    //   display: block;
+    //   position: absolute;
+    //   top: -18px;
+    //   right: -8px;
+    //   border-top: 8px solid $shadow-color;
+    //   border-left:8px solid transparent;
+    //   border-right:8px solid transparent;
+    // }
+    #{$property}-drag{
+      position: absolute;
+      right: -7.5px;
+      top: -5px;
+
+      width: 15px;
+      height: 15px;
+
+      border-radius: 50%;
+      background: $base;
+      transition: all .3s;
+      &:hover{
+        box-shadow: 0 0 0 6px $lighter-shadow;
+      }
+    }
+  }
+}
+
+  // .price-filter{
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   padding: 50px;
+  //   padding-top: 25px;
+  //   margin-top: 40px;
+  //   border-radius: $border-radius;
+  //   background: $whiteColor;
+  //   overflow: hidden;
+    h2{
+      margin-bottom: 40px;
+    }
+    .current-value{
+      width: 100%;
+      
+      label{
+        display: inline-flex;
+        width: 50px;
+        font-size: 20px;
+      }
+      input{
+          margin: 0;
+          max-width: 50px;
+          margin-bottom: 5px;
+          font-size: 14px;
+          color: $themePrimaryColor;
+          padding: 5px;         
+          border: none;
+          border-radius: $border-radius;
+          background: #f6f6f8;
+          text-align: center;
+        } 
+    }
+    .values{
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      width: $time-line-width;
+      color: $themePrimaryColor;
+      font-size: 14px;
+    }
+    #priceslider{
+      position: relative;
+      width: $time-line-width;
+      height: 5px;
+      background: $lighter-gray;
+      border-radius: 5px;
+      cursor: pointer;
+      
+      @include dragIndicator("#min", $lighter-gray , 2);
+      @include dragIndicator("#max", $themePrimaryColor, 1);
+    }
+  // }
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}

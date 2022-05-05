@@ -1,0 +1,167 @@
+footer {
+    min-height: 681px;
+    margin-top: auto;
+    .top-footer {
+        padding: 43px 0 50px;
+        background-color: $themeSecondaryColor;
+        .block.newsletter {
+            max-width: 550px;
+            margin: 0 auto;
+            width: 100%;
+            border-radius: 50px;
+            border: 1px solid $fontColor;
+            padding: 2px;
+        }
+        .form.subscribe {
+            position: relative;
+            display: table;
+            width: 100%;
+        }
+        .field.newsletter {
+            max-width: 220px;
+            margin: 0px 5px 0px 0px;
+        }
+        .actions {
+            display: table-cell;
+            vertical-align: top;
+            width: 1%;
+        }
+        button.action.subscribe {
+            padding: 0 15px;
+            color: $whiteColor;
+            border: 2px solid $themePrimaryColor;
+            background-color: $themePrimaryColor;
+            -webkit-border-radius: 40px;
+            -moz-border-radius: 40px;
+            border-radius: 40px;
+            margin: 0;
+            &:hover {
+                background: $fontHoverColor;
+                border-color: $fontHoverColor;
+                box-shadow: none;
+                outline: none;
+            }
+            &:focus {
+                background: $fontHoverColor;
+                border-color: $fontHoverColor;
+                box-shadow: none !important;
+                outline: none;
+            }
+            &:active {
+                background: $fontHoverColor;
+                border-color: $fontHoverColor;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+        .control {
+            width: 100%;
+            text-decoration: none;
+            display: block;
+        }
+        input[type="email"] {
+            height: 39px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            border: none;
+            padding: 0 10px;
+            background-color: transparent;
+            margin: 0;
+        }
+    }
+    .middle-footer {
+        background-color: $whiteColor;
+        padding: 80px 0;
+        border-top: 1px solid $themeSecondaryColor;
+        .list-icon {
+            li {
+                margin-bottom: 18px;
+                color:$fontColor;
+                font-size: 14px;
+                display: flex;
+                span {
+                    padding-right: 5px;
+                }
+            }
+        }
+        a {
+            color:$fontColor;
+            text-decoration: none;
+            cursor: pointer;    
+            &:hover {
+                color: $fontHoverColor;
+            }
+        }
+        ul.menu {
+            li {
+                line-height: 30px;
+                margin-bottom: 5px;
+                @media(max-width:767px){
+                    line-height: 25px;
+                }
+            }
+        }
+        div[class*="col-"]:not(:last-child) {
+            @media(max-width:1199px) {
+                margin-bottom: 40px;
+            }
+            @media(max-width:570px) {
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width:767px) {
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
+    .bottom-footer {
+        background-color: $bottomFooterbgColor;
+        line-height: 1;
+        border-top: 1px solid transparent;
+        padding: 20px 0;
+        a {
+            color: $a_fontColor;
+            text-decoration: none;
+            font-size: $font14;
+            &:hover {
+                color: $fontHoverColor;
+            }
+        }
+        ul {
+            display: block;
+            margin: 0;
+            padding-left: 0px;
+            li {
+                float: right;
+                margin:0 10px;
+            }
+            @media(max-width:1199px) {
+                display: table;
+                margin: 0 auto;
+            }
+        }
+        .copyright {
+            display: block;
+            margin: 0;
+            span {
+                font-size: $font14;
+                color: $fontColor;
+            }
+        }
+        address {
+            margin: 0;
+            line-height: 1;
+        }
+        small.copyright {
+            text-align: left;
+            margin-bottom: 0;
+            line-height: 1;
+            @media(max-width: 1199px) {
+                text-align: center;
+                margin-bottom: 15px;
+                line-height: 1.75;
+            }
+        }
+    }
+}
