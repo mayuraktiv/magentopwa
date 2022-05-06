@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import ProName from './ProName';
 import AddToCart from './AddToCart';
 import WishList from './WishList';
@@ -21,7 +20,7 @@ const ProductList = ({ productData }) => {
                         <ProDes description={productData.short_description} />
                     }
                     <div className="actions-link d-flex">
-                        <AddToCart params={{ type: 'ac_btn' }} />
+                        <AddToCart sku={productData.sku} pageType="product_list" />
                         <WishList className="wish_active" />
                     </div>
                 </div>

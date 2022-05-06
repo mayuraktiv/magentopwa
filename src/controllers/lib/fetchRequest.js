@@ -2,7 +2,7 @@ const fetchRequest = {};
 
 fetchRequest.executeFetch = async (request) => {
     let url = "http://localhost/react-magento/graphql?query=" + encodeURIComponent(request);
-    const response = await fetch(url, { 
+    const response = await fetch(url, {
         method: "GET",
         headers: fetchRequest.getHeaders()
     });
@@ -14,6 +14,20 @@ fetchRequest.executeFetch = async (request) => {
     return data;
 };
 
+fetchRequest.executePostFetch = async (request) => {
+    let url = "http://localhost/react-magento/graphql";
+    const response = await fetch(url, {
+        method: "POST",
+        headers: fetchRequest.getHeaders(),
+        body: request
+    });
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    }
+    const data = await response.json();
+    return data;
+}
 
 fetchRequest.getHeaders = () => {
     var myHeaders = new Headers();

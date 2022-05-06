@@ -118,6 +118,154 @@ graphQlQuery.categories = () => {
     `;
 }
 
+graphQlQuery.cart = () => {
+    let query = `
+        email
+        id
+        is_virtual
+        total_quantity
+        ${graphQlQuery.shippingAddressQuery()}
+        ${graphQlQuery.billingAddressQuery()}
+        items {
+            quantity
+            uid
+            prices {
+                price {
+                  currency
+                  value
+                }
+                row_total {
+                  currency
+                  value
+                }
+                row_total_including_tax {
+                  currency
+                  value
+                }
+            }
+            product {
+                ${graphQlQuery.product()}
+            }
+        }
+        available_payment_methods {
+            code
+            title
+        }
+        selected_payment_method {
+            code
+            title
+        }
+        applied_coupons {
+            code
+        }
+        prices {
+            applied_taxes {
+                amount {
+                    currency
+                    value
+                }
+                label
+            }
+            discounts {
+                amount {
+                    currency
+                    value
+                }
+                label
+            }
+            grand_total {
+                currency
+                value
+            }
+            subtotal_excluding_tax {
+                currency
+                value
+            }
+            subtotal_including_tax {
+                currency
+                value
+            }
+            subtotal_with_discount_excluding_tax {
+                currency
+                value
+            }
+        }
+    `;
+    return query;
+}
+
+graphQlQuery.billingAddressQuery = () => {
+    return `
+        billing_address {
+            firstname
+            lastname
+            street
+            telephone
+            city
+            country {
+                code
+                label
+            }
+            postcode
+            region {
+                code
+                label
+            }
+        }
+    `;
+}
+
+graphQlQuery.shippingAddressQuery = () => {
+    return `
+        shipping_addresses {
+            firstname
+            lastname
+            street
+            city
+            region {
+                code
+                label
+            }
+            country {
+                code
+                label
+            }
+            telephone
+            postcode
+            available_shipping_methods {
+                amount {
+                    currency
+                    value
+                }
+                available
+                carrier_code
+                carrier_title
+                error_message
+                method_code
+                method_title
+                price_excl_tax {
+                    value
+                    currency
+                }
+                price_incl_tax {
+                    value
+                    currency
+                }
+            }
+            selected_shipping_method {
+                amount {
+                    value
+                    currency
+                }
+                carrier_code
+                carrier_title
+                method_code
+                method_title
+            }
+        }
+    `;
+}
+
 graphQlQuery.prepareFilterQuery = (data) => {
     let query = `filter: {
         ${graphQlQuery.prepareCategryFilter(data)}

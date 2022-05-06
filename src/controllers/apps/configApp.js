@@ -1,6 +1,8 @@
 import { Component } from "react";
+import getCartId from "../lib/getCartId";
 import reduxActions from "../redux/actions/reduxActions";
 import configRequest from "../request/configRequest";
+import emptyCartRequest from "../request/emptyCartRequest";
 
 class configApp extends Component {
     constructor(props) {
@@ -10,7 +12,14 @@ class configApp extends Component {
 
     componentDidMount = () => {
         this.fetchConfigData();
+        this.createEmptyCart();
     };
+
+    createEmptyCart = async () => {
+        if (!getCartId()) {
+            const res = await emptyCartRequest.createEmptyCart();
+        }
+    }
 
     fetchConfigData = async () => {
         this.setState({ loading: true });
@@ -26,7 +35,7 @@ class configApp extends Component {
 
     static mapStateToProps = state => {
         let loading = true;
-        if(state.db.categories?.length > 0) {
+        if (state.db.categories?.length > 0) {
             loading = false
         }
         return {

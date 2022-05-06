@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import classnames from 'classnames';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
@@ -7,44 +7,54 @@ import CartPriceBox from '../cart/CartPriceBox';
 import CartPromoBox from '../cart/CartPromoBox';
 import CartFooter from '../cart/CartFooterPopup';
 import CartEmpty from '../cart/CartEmpty';
+import CartContext from '../controllers/contexts/cart/cartContext';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="left" ref={ref} {...props} />;
-}); 
+});
 
-export default class CartIcon extends Component {
-    state = {
-        dialogOpen: false
-    }
-    handleClickOpen = () => {
-        this.setState({dialogOpen: true});
-    }
-    
-    handleClose = () => {
-        this.setState({dialogOpen: false});
-    }
-
-    render() {
-        return (
-            <div className={classnames('minicart', this.props.className)}>
-                <span className="material-icons" onClick={this.handleClickOpen}>local_mall</span>
-                <Dialog fullScreen open={this.state.dialogOpen} className='minicart-popup' onClose={this.handleClose} TransitionComponent={Transition} transitionDuration={600}>
+const CartIcon = (props) => {
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const { cart_details } = useContext(CartContext);
+    return (
+        <div className={classnames('minicart', props.className)}>
+            <div className='cart_bubble_box'>
+                <span className="material-icons" onClick={() => setDialogOpen(true)}>local_mall</span>
+                {cart_details?.total_quantity > 0 &&
+                    <span className='cart_bubble'>{cart_details.total_quantity}</span>
+                }
+            </div>
+            <Dialog
+                fullScreen open={dialogOpen}
+                className='minicart-popup'
+                onClose={() => setDialogOpen(false)}
+                TransitionComponent={Transition}
+                transitionDuration={600}
+            >
                 <div className='cart-header card'>
                     <div className='cart-header-content'>
                         <h5>My Cart</h5>
                     </div>
-                    <button className="cart-close" onClick={this.handleClose}><i className="material-icons">close</i></button>
+                    <button className="cart-close" onClick={() => setDialogOpen(false)}>
+                        <i className="material-icons">close</i>
+                    </button>
                 </div>
-                {/* <CartEmpty /> */}
-                <div className='cart-body card'>
-                    <CartWrapper />
-                   
-                </div>
-                <CartPriceBox></CartPriceBox>
-                <CartPromoBox></CartPromoBox>
-                <CartFooter></CartFooter>
-                </Dialog>
-            </div>
-        );
-    }
+                {cart_details?.total_quantity > 0
+                    ?
+                    <Fragment>
+                        <div className='cart-body card'>
+                            <CartWrapper />
+                        </div>
+                        <CartPriceBox></CartPriceBox>
+                        <CartPromoBox></CartPromoBox>
+                        <CartFooter></CartFooter>
+                    </Fragment>
+                    :
+                    <CartEmpty />
+                }
+            </Dialog>
+        </div>
+    );
 }
+
+export default CartIcon;

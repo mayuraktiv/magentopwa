@@ -4,7 +4,6 @@ import ProBox from '../product/Probox';
 
 const ProductView = (props) => {
     const [gridCls, setGridCls] = useState('grid__product--four-product');
-    console.log("ProductView---->", props);
     const product_skus = [...props.product_skus, ...props.product_skus_loadmore];
     return (
         <div className='product-view'>

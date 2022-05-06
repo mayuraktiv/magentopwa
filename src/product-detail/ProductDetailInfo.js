@@ -1,5 +1,4 @@
 import React from 'react';
-import ProName from '../product/ProName';
 import Price from '../product/ProPrice';
 import ProDes from '../product/ProductDes';
 import AddToCart from '../product/AddToCart';
@@ -9,7 +8,6 @@ import ProductAvailability from '../product/ProductAvailability';
 import ProductSku from '../product/ProductSku';
 
 const ProductDetailInfo = ({ productDetail }) => {
-    console.log("ProductDetailInfo--->", productDetail);
     return (
         <div className="product-info-main">
             <div className='product_name'>
@@ -18,8 +16,7 @@ const ProductDetailInfo = ({ productDetail }) => {
             <Price prices={productDetail.prices}></Price>
             <ProDes />
             <div className="actions-link d-flex">
-                <FieldQty />
-                <AddToCart params={{ type: 'ac_btn' }} />
+                <AddToCart sku={productDetail.sku} pageType="product_detail"/>
                 <WishList className="wish_active" />
             </div>
             <div className="product-info-stock-sku">
