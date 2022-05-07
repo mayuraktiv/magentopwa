@@ -6,17 +6,16 @@ import ProductListing from "./productListing";
 
 class UrlResolver extends urlResolverApp {
     render() {
-        console.log("UrlResolver--->", this.state);
         return (
             <Fragment>
                 {!this.state.loading 
                     ?
                     <Fragment>
                         {this.state.urlInfo?.page_type === "CATEGORY" &&
-                            <ProductListing urlInfo={this.state.urlInfo} {...this.props}/>
+                            <ProductListing urlData={this.state.urlInfo} {...this.props}/>
                         }
                         {this.state.urlInfo?.page_type === "PRODUCT" &&
-                            <ProductDetail urlInfo={this.state.urlInfo} {...this.props}/>
+                            <ProductDetail urlData={this.state.urlInfo} {...this.props}/>
                         }
                     </Fragment>
                     :

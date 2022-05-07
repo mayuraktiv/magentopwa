@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import ProductMoreInfo from '../product/ProductMoreInfo';
 import ProductDetailDesc from '../product/ProductDetailDesc';
-import ProductReview from './ProductReview';
+import ProductReviews from './ProductReviews';
 
 const ProDetailTab = ({ productDetail }) => {
-    console.log("ProductDetailMain--->", productDetail);
     return (
         <div className="tab-section">
             <div className="row tab-row-content">
@@ -22,7 +21,7 @@ const ProDetailTab = ({ productDetail }) => {
                         </Tab>
                         <Tab label="Reviews">
                             <div className="tab-productreviews">
-                                <ProductReview productDetail={productDetail}/>
+                                <ProductReviews {...productDetail}/>
                             </div>
                         </Tab>
                     </Tabs>

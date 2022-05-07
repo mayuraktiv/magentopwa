@@ -266,6 +266,25 @@ graphQlQuery.shippingAddressQuery = () => {
     `;
 }
 
+graphQlQuery.ratingOptionsQuery = () => {
+    return `
+        productReviewRatingsMetadata {
+            items {
+                id
+                name
+                values {
+                    value_id
+                    value
+                }
+            }
+        }
+    `
+}
+
+graphQlQuery.prepareRatingOptionQuery = (data) => {
+    return `${Object.keys(data).filter(key => (key !== "sku" && key !== "nickname" && key !== "summary" && key !== "text")).map(item => `{id: "${item}", value_id: "${data[item]}"}`)}`
+}
+
 graphQlQuery.prepareFilterQuery = (data) => {
     let query = `filter: {
         ${graphQlQuery.prepareCategryFilter(data)}

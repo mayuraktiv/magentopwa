@@ -9,7 +9,8 @@ let initialState = {
     products: [],
     history: [],
     categoryProducts: [],
-    searchProducts: []
+    searchProducts: [],
+    rating_options: []
 };
 
 const rootReducer = (state = initialState, storeData) => {

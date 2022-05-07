@@ -5,7 +5,6 @@ import productListResponse from "../response/productListResponse";
 const productListRequest = {};
 
 productListRequest.fetchProducts = async (data) => {
-    console.log("productListRequest.fetchProducts---->", data);
     const request = `{
         commonRequest(path: "${data.path}"){path}
         products(

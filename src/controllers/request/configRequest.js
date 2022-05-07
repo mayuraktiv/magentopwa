@@ -5,13 +5,16 @@ import configResponse from "../response/configResponse";
 const configRequest = {};
 
 configRequest.getConfigData = async () => {
-    const categryRequest = `{
-        ${graphQlQuery.categories()}
-    }`;
+    const categryRequest = `{${graphQlQuery.categories()}}`;
+    const ratingOptionsRequest = `{${graphQlQuery.ratingOptionsQuery()}}`
 
-    let res = await fetchRequest.executeFetch(categryRequest);
-    let configData = configResponse.parse(res);
-    console.log("categories---->", configData);
+    const res = await Promise.all([
+        fetchRequest.executeFetch(categryRequest),
+        fetchRequest.executeFetch(ratingOptionsRequest)
+    ]);
+
+    const configData = configResponse.parse(res);
+    
     return configData
 };
 

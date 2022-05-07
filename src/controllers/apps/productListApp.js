@@ -49,7 +49,7 @@ class productListApp extends Component {
         }
         let data = {
             ...this.state,
-            ...this.props.urlInfo,
+            ...this.props.urlData,
             path: this.props.location.pathname + this.props.location.search
         }
         const productData = await productListRequest.fetchProducts(data);
@@ -78,7 +78,6 @@ class productListApp extends Component {
     };
 
     changeView = (value) => {
-        console.log("changeView--->", value);
         this.setState({
             view: value
         });
@@ -122,7 +121,7 @@ class productListApp extends Component {
         this.setState({ loadingMore: true });
         let data = {
             ...this.state,
-            ...this.props.urlInfo,
+            ...this.props.urlData,
             path: this.props.location.pathname + this.props.location.search
         }
         const productData = await productListRequest.fetchProducts(data);
