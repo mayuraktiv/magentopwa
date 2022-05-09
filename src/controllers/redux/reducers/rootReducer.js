@@ -10,7 +10,8 @@ let initialState = {
     history: [],
     categoryProducts: [],
     searchProducts: [],
-    rating_options: []
+    rating_options: [],
+    productDetailSlider: []
 };
 
 const rootReducer = (state = initialState, storeData) => {
@@ -42,6 +43,9 @@ const rootReducer = (state = initialState, storeData) => {
                     }
                     else if (key === "products") {
                         state[key] = storeProducts(state, key, data[key]);
+                    }
+                    else if (key === "productDetailSlider") {
+                        state[key] = storeProductDetailSliderData(state, key, data[key]);
                     }
                     else {
                         state[key] = data[key];
@@ -88,6 +92,18 @@ const storeProducts = (state, node, data) => {
         }
     }
     return products;
+}
+
+const storeProductDetailSliderData = (state, node, data) => {
+    let productDetailSlider = state[node];
+    let index = productDetailSlider.findIndex(item => item.sku === data.sku);
+    if (index !== -1) {
+        productDetailSlider[index] = data;
+    }
+    else {
+        productDetailSlider.push(data);
+    }
+    return productDetailSlider;
 }
 
 export default rootReducer;

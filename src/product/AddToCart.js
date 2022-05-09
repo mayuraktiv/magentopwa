@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 class AddToCart extends addToCartApp {
     render() {
-        console.log("AddToCart---->", this.props, this.state);
         return (
             <Fragment>
                 {this.props.pageType === "product_detail" &&

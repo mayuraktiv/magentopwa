@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import PriceSummary from './PriceSummary';
 
-export default class CartPriceBox extends Component {
-    render() {
-        return (
-            <div className={classnames('cart_price_box', this.props.className)}>
-                <div className="card">
-                    <div className="card-header">
-                        <h6>Price Details</h6>
-                    </div>
-                    <div className="card-body">
-                        <PriceSummary />
-                    </div>
-                    <div className="card-footer">
+const CartPriceBox = (props) => {
+    return (
+        <div className={classnames('cart_price_box', props.className)}>
+            <div className="card">
+                <div className="card-header">
+                    <h6>Price Details</h6>
+                </div>
+                <div className="card-body">
+                    <PriceSummary />
+                </div>
+                {/* <div className="card-footer">
                     <div id="accordion" className="accordion_row">
                         <button className="price_discount" data-toggle="collapse" data-target="#co_step" aria-expanded="true">
-                        Your Total Savings on this order <strong>$300.00</strong> <i className="material-icons">keyboard_arrow_down</i>
+                            Your Total Savings on this order <strong>$300.00</strong> <i className="material-icons">keyboard_arrow_down</i>
                         </button>
                     </div>
                     <div id="co_step" className="collapse" data-parent="#accordion">
@@ -27,9 +26,10 @@ export default class CartPriceBox extends Component {
                             </ul>
                         </div>
                     </div>
-                    </div>
-                </div>
-            </div >
-        );
-    }
+                </div> */}
+            </div>
+        </div >
+    );
 }
+
+export default CartPriceBox

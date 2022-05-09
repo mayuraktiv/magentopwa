@@ -2,19 +2,16 @@ import fetchRequest from "../lib/fetchRequest";
 import getCartId from '../lib/getCartId';
 import graphQlQuery from '../lib/graphQlQuery';
 import cartResponse from "../response/cartResponse";
-const addToCartRequest = {};
+const deleteCartRequest = {};
 
-addToCartRequest.addToCart = async (data) => {
+deleteCartRequest.deleteCart = async (data) => {
     const request = JSON.stringify({
         query: `mutation {
-            addProductsToCart(
-                cartId: "${getCartId()}"
-                cartItems: [
-                    {
-                        quantity: ${data.qty}
-                        sku: "${data.sku}"
-                    }
-                ]
+            removeItemFromCart(
+                input: {
+                    cart_id: "${getCartId()}"
+                    cart_item_uid: "${data.item_uid}"
+                }
             ) {
                 cart {
                     ${graphQlQuery.cart()}   
@@ -25,10 +22,10 @@ addToCartRequest.addToCart = async (data) => {
 
     let res = await fetchRequest.executePostFetch(request);
     let cartData = false;
-    if(res?.data?.addProductsToCart?.cart) {
-        cartData = cartResponse.parse(res.data.addProductsToCart.cart);
+    if(res?.data?.removeItemFromCart?.cart) {
+        cartData = cartResponse.parse(res.data.removeItemFromCart.cart);
     }
     return cartData
 }
 
-export default addToCartRequest;
+export default deleteCartRequest;

@@ -1,9 +1,9 @@
 import React from 'react';
 import ProductDetailInfo from './ProductDetailInfo';
-import ProductDetailSlider from './ProductDetailSlider';
+import ProductImageSlider from './ProductImageSlider';
 import ProDetailTab from './productDetailTab';
-import ProductWidget from '../product/ProductWidget'
 import ShippingInfo from '../home/ShippingInfo';
+import ProductDetailSlider from './productDetailSlider';
 
 const ProductDetailMain = ({ productDetail }) => {
     return (
@@ -12,7 +12,7 @@ const ProductDetailMain = ({ productDetail }) => {
                 <div className='row'>
                     <div className="col-12 col-md-6">
                         <div className="product media">
-                            <ProductDetailSlider media_gallery={productDetail.media_gallery}/>
+                            <ProductImageSlider media_gallery={productDetail.media_gallery}/>
                         </div>
                     </div>
                     <div className="col-12 col-md-6">
@@ -20,7 +20,7 @@ const ProductDetailMain = ({ productDetail }) => {
                     </div>
                 </div>
                 <ProDetailTab productDetail={productDetail}/>
-                <ProductWidget/>
+                <ProductDetailSlider sku={productDetail.sku}/>
                 <div className='content-heading'>
                     <h3>DELIVERY & RETURNS</h3>
                     <p className="block-note">Custom static block for product detail</p>

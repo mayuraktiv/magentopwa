@@ -1,9 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-
 import ProductSlider from './ProductSlider';
-
-import '../style/base.scss';
 
 export default class ProductWidget extends React.Component {
     render() {
