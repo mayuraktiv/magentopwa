@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import firstimage from '../images/digital_laptop.jpg';
 import secondimage from '../images/digital_accessories.jpg';

@@ -3,7 +3,7 @@ import Price from '../product/ProPrice';
 import ProDes from '../product/ProductDes';
 import AddToCart from '../product/AddToCart';
 import WishList from '../product/WishList';
-import FieldQty from '../product/FieldQty';
+// import FieldQty from '../product/FieldQty';
 import ProductAvailability from '../product/ProductAvailability';
 import ProductSku from '../product/ProductSku';
 

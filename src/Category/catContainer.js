@@ -4,7 +4,6 @@ import CatLeftSec from "./catLeftSidebar";
 
 const CatContainer = (props) => {
     const [show, setShow] = React.useState();
-    console.log("CatContainer----->", props);
     return (
         <div className="frame">
             <div className="cat-row">
@@ -12,14 +11,11 @@ const CatContainer = (props) => {
                     <span className="material-icons">sort</span>
                 </button>
                 <div className={`filter-left-section ${show ? "show" : ""}`}>
-                    <div className="filter_close">
-                        <h6 className="close-filter">Filter</h6>
-                        <button className="filter-close">
-                            <span className="material-icons" onClick={() => setShow(false)}>
-                                close
-                            </span>
-                        </button>
-                    </div>
+                    <button className="filter-close">
+                        <span className="material-icons" onClick={() => setShow(false)}>
+                            close
+                        </span>
+                    </button>
                     <CatLeftSec
                         filters={props.filters}
                         appliedFilters={props.appliedFilters}

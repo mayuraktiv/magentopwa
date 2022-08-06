@@ -8,7 +8,6 @@ import '../style/partials/_category.scss';
 
 class ProductListing extends productListApp {
     render() {
-        console.log("ProductListing----->", this.props);
         return (
             <div id="page_wrapper">
                 <div className="category-page">

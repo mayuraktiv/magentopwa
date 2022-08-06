@@ -7,14 +7,15 @@ const configRequest = {};
 configRequest.getConfigData = async () => {
     const categryRequest = `{${graphQlQuery.categories()}}`;
     const ratingOptionsRequest = `{${graphQlQuery.ratingOptionsQuery()}}`
+    const storeConfigRequest = `{${graphQlQuery.storeConfigQuery()}}`
 
     const res = await Promise.all([
         fetchRequest.executeFetch(categryRequest),
-        fetchRequest.executeFetch(ratingOptionsRequest)
+        fetchRequest.executeFetch(ratingOptionsRequest),
+        fetchRequest.executeFetch(storeConfigRequest)
     ]);
 
     const configData = configResponse.parse(res);
-    
     return configData
 };
 

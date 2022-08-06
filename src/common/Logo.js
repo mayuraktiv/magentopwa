@@ -3,7 +3,7 @@ import classnames from 'classnames';
 // import { Link } from 'react-router-dom';
 
 import Logoname from '../images/logo3.png';
-import Logoname1 from '../images/logo2.png';
+// import Logoname1 from '../images/logo2.png';
 
 export default class Logo extends Component {
     render() {

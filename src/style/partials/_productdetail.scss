@@ -65,7 +65,7 @@
             visibility: visible;
             transform: none;
             margin-right: 15px;
-            button {
+            a {
                 background-color: $themePrimaryColor;
                 color: $whiteColor;
                 border-radius: 40px;
@@ -80,8 +80,6 @@
                 box-shadow: none;
                 min-width: 160px;
                 text-align: center;
-                box-shadow: none;
-                border: 1px solid;
                 &:after {
                     display: none;
                 }
@@ -138,6 +136,9 @@
             .stock.available span {
                 color:green;
             }
+            .stock.not_available span {
+                color:red;
+            }
             div {
                 margin-bottom:10px;
             }
@@ -166,6 +167,30 @@
             font-weight: 500;
         }
     } 
+    .product-review {
+        .starrating > input {
+            display: none;
+        }  
+        .starrating > label:before { 
+            content: "\f005"; /* Star */
+            margin: 2px;
+            font-size: 22px;
+            font-family: 'FontAwesome';
+            display: inline-block;
+            font-style: normal; 
+            font-weight: normal;
+        }
+        .starrating > label {
+            color: $fontColor; /* Start color when not clicked */
+            line-height: 22px;
+        }
+        .starrating > input:checked ~ label { 
+            color: #ffca08 ;  /* Set yellow color when star checked */
+        }
+        .starrating > input:hover ~ label { 
+            color: #ffca08 ;  
+        }
+    }
     .content-heading {
         text-align: center;
         margin: 0 auto;

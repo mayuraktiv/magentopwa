@@ -1,7 +1,7 @@
 import React from 'react';
-import FilterPriceRange from './FilterbyPrice';
-import FilterColors from './FilterbyColor';
-import FilterSize from './FilterbySize';
+// import FilterPriceRange from './FilterbyPrice';
+// import FilterColors from './FilterbyColor';
+// import FilterSize from './FilterbySize';
 import DisplayFilter from './displayFilters';
 
 const MainSidebar = (props) => {

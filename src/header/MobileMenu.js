@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MobileSidebar from './MobileSidebar';
 
 export default function MobileMenu() {
-    const [active, setShow] = React.useState();
+    const [active] = React.useState();
     return (
         <div className={`mobile-menu ${active ? "active" : ""}`}>
             <div className="mobile-menu-wrapper">

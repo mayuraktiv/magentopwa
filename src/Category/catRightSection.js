@@ -40,9 +40,9 @@ const CatRightSec = (props) => {
                 <div className='product-load-more'>
                     {!props.loadingMore
                         ?
-                        <button type='buttons' className='btn btn-default btn-xs' onClick={props.loadMoreProducts}>Load more</button>
+                        <button type='buttons' onClick={props.loadMoreProducts}>Load more</button>
                         :
-                        <button type='buttons' className='btn btn-default btn-xs'>Loading more...</button>
+                        <button type='buttons'>Loading more...</button>
                     }
                 </div>
             }

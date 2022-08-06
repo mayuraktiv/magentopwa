@@ -24,6 +24,7 @@ addToCartRequest.addToCart = async (data) => {
     });
 
     let res = await fetchRequest.executePostFetch(request);
+   
     let cartData = false;
     if(res?.data?.addProductsToCart?.cart) {
         cartData = cartResponse.parse(res.data.addProductsToCart.cart);

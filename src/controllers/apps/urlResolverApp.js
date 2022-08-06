@@ -1,5 +1,5 @@
 import { Component } from "react";
-import commonParser from "../lib/commonParser";
+// import commonParser from "../lib/commonParser";
 import urlResolverRequest from "../request/urlResolverRequest";
 
 class urlResolverApp extends Component {
@@ -74,3 +74,4 @@ class urlResolverApp extends Component {
 }
 
 export default urlResolverApp;
+    

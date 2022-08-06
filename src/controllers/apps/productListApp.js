@@ -3,7 +3,8 @@ import reduxActions from "../redux/actions/reduxActions";
 import productListRequest from "../request/productListRequest";
 import queryString from 'query-string';
 
-class productListApp extends Component {
+class  productListApp extends Component {
+   
     constructor(props) {
         super(props);
         this.state = {
@@ -39,6 +40,7 @@ class productListApp extends Component {
         }, () => {
             if (this.props.history.action === "PUSH" || window.reload) {
                 this.fetchProducts();
+                
             }
         });
     }

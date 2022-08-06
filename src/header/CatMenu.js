@@ -8,11 +8,11 @@ const CatMenu = () => {
         <div className="main_navbar navbar-expand-lg custom_navbar offcanvas-collapse">
             <div className="navbar-collapse" id="webstore_nav">
                 <ul className="navbar-nav nav_item_listing d-flex mb-0">
-                    {categories?.map(category => (
-                        <Fragment key={"menu-cat-" + category.uid}>
-                            <CatMenuItem category={category}/>
+                    {/* {categories?.map((category) => (                       
+                        <Fragment key={"menu-cat-" + category.props.children.uid}>
+                            <CatMenuItem category={category.props.children}/>
                         </Fragment>
-                    ))}
+                    ))} */}
                 </ul>
             </div>
         </div>

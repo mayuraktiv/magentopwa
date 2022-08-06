@@ -91,7 +91,7 @@ export default class FilterPriceRange extends React.Component {
 
 
     setMax = (e) => {
-        const { min, max, currentMin, currentMax, minValueBetween } = this.state;
+        const {  max, currentMin,  minValueBetween } = this.state;
 
         const inputMax = e.target.value;
 
@@ -157,7 +157,7 @@ export default class FilterPriceRange extends React.Component {
 
 
     render() {
-        const { min, max, currentMin, inputMin, currentMax, inputMax, minValueBetween } = this.state;
+        const { min, max, currentMin, inputMin, currentMax, inputMax } = this.state;
 
         return (
             <div className="filter-options-item">

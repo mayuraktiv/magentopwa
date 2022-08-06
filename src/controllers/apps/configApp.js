@@ -9,7 +9,7 @@ class configApp extends Component {
         super(props);
         this.fetchConfigData = this.fetchConfigData.bind(this);
     }
-
+  
     componentDidMount = () => {
         this.fetchConfigData();
         this.createEmptyCart();
@@ -24,6 +24,7 @@ class configApp extends Component {
     fetchConfigData = async () => {
         this.setState({ loading: true });
         const configData = await configRequest.getConfigData();
+        // console.log("props",configData)
         let nodes = {};
         let nodeValues = {};
         nodes["categories"] = "categories";

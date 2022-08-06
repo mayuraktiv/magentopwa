@@ -5,7 +5,7 @@ const DisplayFilter = (props) => {
     return (
         <div className="filter-options-item">
             {props.filters?.map(item => (
-                <Collapsible trigger={item.label} key={"filter-" + item.attribute_code}>
+                <Collapsible open trigger={item.label} key={"filter-" + item.attribute_code}>
                     <div className="filter-options-content fcolor_content">
                         <ul className="filter_input_list fcolor_list">
                             {item.options.map((option, index) => {

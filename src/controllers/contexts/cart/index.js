@@ -8,6 +8,7 @@ const CartProvider = (props) => {
 }
 
 CartProvider.mapStateToProps = state => {
+
     return {
         cart_details: state.db.cart_details
     }

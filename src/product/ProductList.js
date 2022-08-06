@@ -7,6 +7,7 @@ import Price from './ProPrice';
 import ProDes from './ProductDes';
 
 const ProductList = ({ productData }) => {
+
     return (
         <div className='row'>
             <div className="col-des-3 col-tb-4 col-mb-12 product_list_image">

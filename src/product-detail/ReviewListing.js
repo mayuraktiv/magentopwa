@@ -5,7 +5,7 @@ class ReviewListing extends reviewsListingApp {
     render() {
         return (
             <div className="review-listing-main-container">
-                {/* <h3>Customer Reviews</h3> */}
+                <h3>Customer Reviews</h3>
                 <div className="review-listing-block">
                     <div className="pro_review_listing_main_container">
                         {!this.state.loading
@@ -29,7 +29,7 @@ class ReviewListing extends reviewsListingApp {
                                         </p>
                                         <div className="pro_view_review_attr_container">
                                             <span className="pro_view_review_user_img">
-                                                <img src={UserImg} />
+                                                <img src={UserImg} alt="userImg" />
                                             </span>
                                             <span className="pro_view_review_username">Carol</span>
                                             <span className="pro_view_review_detail_date">

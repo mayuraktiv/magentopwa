@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import CurrencySymbol from '../common/CurrencySymbol';
 
 const Price = ({ prices }) => {

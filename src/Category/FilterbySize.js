@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import Collapsible from 'react-collapsible';
 
 import '../style/base.scss';
@@ -11,7 +10,7 @@ export default class FilterSize extends React.Component {
             <div className="filter-options-item"> 
                  <Collapsible open trigger="Filter by Size">
                     <div className="filter-options-content">
-                        <ul className="filter_input_list fsize_list fsize">
+                        <ul className="filter_input_list fsize_list">
                             <li>
                                 <div className="custom-control custom-checkbox">
                                     <input type="checkbox" className="custom-control-input" id="fils_check1" />

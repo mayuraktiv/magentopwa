@@ -15,9 +15,11 @@ let initialState = {
 };
 
 const rootReducer = (state = initialState, storeData) => {
+   
     let action = storeData.type;
     let node = storeData.node;
     let data = storeData.data;
+
     switch (action) {
         case actionTypes.REPLACE:
             if (typeof node === "object") {

@@ -3,11 +3,19 @@ import configApp from "../../apps/configApp";
 import CategoryContext from "./categoryContext";
 
 class ConfigProvider extends configApp {
-    render() {
-        return (
-            <CategoryContext.Provider value={{ categories: this.props.categories }} {...this.props} />
-        );
-    }
+ 
+  render() {
+    // console.log("object",this.props)
+    return (
+      <CategoryContext.Provider
+        value={{ categories: this.props.categories }}
+        {...this.props}
+      />
+    );
+  }
 }
 
-export default connect(configApp.mapStateToProps, configApp.mapDispatchToProps)(ConfigProvider);
+export default connect(
+  configApp.mapStateToProps,
+  configApp.mapDispatchToProps
+)(ConfigProvider);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 // import classnames from 'classnames';
 
 export default function CategoryMenu() {
@@ -10,7 +10,7 @@ export default function CategoryMenu() {
                 <span>DEPARTMENTS</span>
             </div>
             <ul id="vertical-categorymenu" className={`vertical-menu nav box ${show ? "show" : ""}`}>
-                <li className="static-category"><a href="#"><span>Value of the Day</span></a></li>
+                <li className="static-category"><a href="/#"><span>Value of the Day</span></a></li>
                 <li className="static-category"><a href="#"><span>Top 100 Offers</span></a></li>
                 <li className="static-category"><a href="#"><span>Lookbook</span></a></li>
                 <li className="static-category"><a href="#"><span>Computers</span></a></li>

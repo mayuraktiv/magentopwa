@@ -1,8 +1,8 @@
-import commonParser from './commonParser';
+import commonParser from "./commonParser";
 const graphQlQuery = {};
 
 graphQlQuery.product = () => {
-    return `
+  return `
         name
         description {
         html
@@ -48,10 +48,10 @@ graphQlQuery.product = () => {
         }
         }
     `;
-}
+};
 
 graphQlQuery.productFilters = () => {
-    return `
+  return `
         aggregations {
             attribute_code
             count
@@ -63,10 +63,10 @@ graphQlQuery.productFilters = () => {
             }
         }
     `;
-}
+};
 
 graphQlQuery.productSortOptions = () => {
-    return `
+  return `
         sort_fields {
             default
             options{
@@ -75,51 +75,71 @@ graphQlQuery.productSortOptions = () => {
             }
         }
     `;
-}
+};
 
 graphQlQuery.pageInfo = () => {
-    return `
+  return `
         page_info {
             current_page
             page_size
             total_pages
         }
     `;
-}
+};
+// raphQlQuery.categories = () => {
+//     return `
+//         categories {
+//             items {
+//                 children_count
+//                 name
+//                 url_key
+//                 url_path
+//                 image
+//                 uid
+//                 description
+//                 meta_title
+//                 meta_keywords
+//                 meta_description
+//                 children {
+//                     children_count
+//                     name
+//                     url_key
+//                     url_path
+//                     image
+//                     uid
+//                     description
+//                     meta_title
+//                     meta_keywords
+//                     meta_description
+//                 }
+//             }
+//         }
+//     `;
+// }
 
 graphQlQuery.categories = () => {
-    return `
-        categories {
-            items {
-                children_count
-                name
-                url_key
-                url_path
-                image
-                uid
-                description
-                meta_title
-                meta_keywords
-                meta_description
-                children {
-                    children_count
-                    name
-                    url_key
-                    url_path
-                    image
-                    uid
-                    description
-                    meta_title
-                    meta_keywords
-                    meta_description
-                }
-            }
-        }
+  return `
+  allCategories {
+       list {
+         children_count
+         description
+         image
+         meta_description
+         meta_keywords
+         meta_title
+         name
+         parent_uid
+         uid
+         url_key
+         url_path
+       } 
+      }
+    
     `;
-}
+};
 
 graphQlQuery.cart = () => {
-    let query = `
+  let query = `
         email
         id
         is_virtual
@@ -191,11 +211,11 @@ graphQlQuery.cart = () => {
             }
         }
     `;
-    return query;
-}
+  return query;
+};
 
 graphQlQuery.billingAddressQuery = () => {
-    return `
+  return `
         billing_address {
             firstname
             lastname
@@ -213,10 +233,10 @@ graphQlQuery.billingAddressQuery = () => {
             }
         }
     `;
-}
+};
 
 graphQlQuery.shippingAddressQuery = () => {
-    return `
+  return `
         shipping_addresses {
             firstname
             lastname
@@ -264,10 +284,10 @@ graphQlQuery.shippingAddressQuery = () => {
             }
         }
     `;
-}
+};
 
 graphQlQuery.ratingOptionsQuery = () => {
-    return `
+  return `
         productReviewRatingsMetadata {
             items {
                 id
@@ -278,53 +298,82 @@ graphQlQuery.ratingOptionsQuery = () => {
                 }
             }
         }
-    `
-}
+    `;
+};
+
+graphQlQuery.storeConfigQuery = () => {
+    return `
+        storeConfig{
+            store_code
+            website_name
+            secure_base_url
+            base_url
+            store_name
+            root_category_uid
+        }
+      `;
+  };
 
 graphQlQuery.prepareRatingOptionQuery = (data) => {
-    return `${Object.keys(data).filter(key => (key !== "sku" && key !== "nickname" && key !== "summary" && key !== "text")).map(item => `{id: "${item}", value_id: "${data[item]}"}`)}`
-}
+  return `${Object.keys(data)
+    .filter(
+      (key) =>
+        key !== "sku" &&
+        key !== "nickname" &&
+        key !== "summary" &&
+        key !== "text"
+    )
+    .map((item) => `{id: "${item}", value_id: "${data[item]}"}`)}`;
+};
 
 graphQlQuery.prepareFilterQuery = (data) => {
-    let query = `filter: {
+  let query = `filter: {
         ${graphQlQuery.prepareCategryFilter(data)}
-        ${Object.keys(data.appliedFilters).filter(item => item !== "price" && item !== "q" && item !== "product_list_order").map(key => `${key}: { eq: "${data.appliedFilters[key]}" }`)}
+        ${Object.keys(data.appliedFilters)
+          .filter(
+            (item) =>
+              item !== "price" && item !== "q" && item !== "product_list_order"
+          )
+          .map((key) => `${key}: { eq: "${data.appliedFilters[key]}" }`)}
         ${graphQlQuery.preparePriceFilter(data)}
     }`;
-    return query;
-}
+  return query;
+};
 
 graphQlQuery.prepareSortQuery = (data) => {
-    let query = ``;
-    if ('product_list_order' in data.appliedFilters) {
-        query = `sort:{${data.appliedFilters['product_list_order']}: ASC}`
-    }
-    return query;
-}
+  let query = ``;
+  if ("product_list_order" in data.appliedFilters) {
+    query = `sort:{${data.appliedFilters["product_list_order"]}: ASC}`;
+  }
+  return query;
+};
 
 graphQlQuery.prepareSearchQuery = (data) => {
-    let query = ``;
-    if (data.page_type === "SEARCH" && 'q' in data.appliedFilters) {
-        query = `search: "${data.appliedFilters['q']}`;
-    }
-    return query
-}
+  let query = ``;
+  if (data.page_type === "SEARCH" && "q" in data.appliedFilters) {
+    query = `search: "${data.appliedFilters["q"]}`;
+  }
+  return query;
+};
 
 graphQlQuery.prepareCategryFilter = (data) => {
-    let query = ``;
-    if (data.page_type === "CATEGORY" && !('category_id' in data.appliedFilters)) {
-        query = `category_id: { eq: "${commonParser.decode(data.uid)}"}`;
-    }
-    return query;
-}
+  let query = ``;
+  if (
+    data.page_type === "CATEGORY" &&
+    !("category_id" in data.appliedFilters)
+  ) {
+    query = `category_id: { eq: "${commonParser.decode(data.uid)}"}`;
+  }
+  return query;
+};
 
 graphQlQuery.preparePriceFilter = (data) => {
-    let query = ``;
-    if ('price' in data.appliedFilters) {
-        let prices = data.appliedFilters['price'].split('_');
-        query = `price:{from: "${prices[0]}" to: "${prices[1]}"}`
-    }
-    return query;
-}
+  let query = ``;
+  if ("price" in data.appliedFilters) {
+    let prices = data.appliedFilters["price"].split("_");
+    query = `price:{from: "${prices[0]}" to: "${prices[1]}"}`;
+  }
+  return query;
+};
 
 export default graphQlQuery;

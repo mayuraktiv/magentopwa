@@ -1,6 +1,7 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
 
+
 export default class FilterColors extends React.Component {
 
     render() {
@@ -8,7 +9,7 @@ export default class FilterColors extends React.Component {
             <div className="filter-options-item"> 
                  <Collapsible open trigger="Filter by Color">
                     <div className="filter-options-content fcolor_content">
-                        <ul className="filter_input_list fcolor_list fcolor">
+                        <ul className="filter_input_list fcolor_list">
                             <li>
                                 <div className="custom-control custom-checkbox class_tooltip">
                                     <input type="checkbox" className="custom-control-input" id="filc_check1" />
