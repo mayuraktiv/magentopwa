@@ -1,21 +1,43 @@
 const configResponse = {};
+configResponse.getCategories = (allCategories, parent_uid) => {
+    const categories = [];
+    for (let i = 0; i < allCategories.length; i++) {
+        const category = { ...allCategories[i] };
+        if (category.parent_uid === parent_uid) {
+            if (category.children_count > 0) {
+                category["childs"] = configResponse.getCategories(allCategories, category.uid);
+            }
+            else {
+                category["childs"] = [];
+            }
+            categories.push(category);
+        }
+    }
+    return categories;
+};
 
 configResponse.parse = (res) => {
     const configData = {
         categories: [],
-        rating_options: []
+        storeConfig: {},
+        rating_options: [],
+    };
+    const [allCategories, ratingOptions, storeConfig] = res;
+
+    if (ratingOptions?.data?.productReviewRatingsMetadata?.items?.length > 0) {
+        configData["rating_options"] = ratingOptions.data.productReviewRatingsMetadata.items;
     }
-    if (res?.length > 0) {
-        for (let i = 0; i < res.length; i++) {
-            const data = res[i];
-            if (data?.data?.categories?.items?.length > 0) {
-                configData['categories'] = data.data.categories.items[0].children;
-            }
-            if (data?.data?.productReviewRatingsMetadata?.items?.length > 0) {
-                configData["rating_options"] = data.data.productReviewRatingsMetadata.items
-            }
+
+    if (storeConfig?.data?.storeConfig?.store_name?.length > 0) {
+        configData.storeConfig = storeConfig.data.storeConfig;
+        if (allCategories?.data?.allCategories?.list?.length > 0) {
+            configData["categories"] = configResponse.getCategories(
+                allCategories.data.allCategories.list,
+                storeConfig.data.storeConfig.root_category_uid
+            );
         }
     }
+
     return configData;
 };
 

@@ -1,7 +1,7 @@
 const fetchRequest = {};
 
 fetchRequest.executeFetch = async (request) => {
-    let url = "http://local.m243.com/graphql?query=" + encodeURIComponent(request);
+    let url = "http://jsmagento.ictstagingsite.com/graphql?query=" + encodeURIComponent(request);
     const response = await fetch(url, {
         method: "GET",
         headers: fetchRequest.getHeaders()
@@ -15,7 +15,7 @@ fetchRequest.executeFetch = async (request) => {
 };
 
 fetchRequest.executePostFetch = async (request) => {
-    let url = "http://local.m243.com/graphql";
+    let url = "http://jsmagento.ictstagingsite.com/graphql";
     const response = await fetch(url, {
         method: "POST",
         headers: fetchRequest.getHeaders(),
