@@ -1,0 +1,344 @@
+body {
+    .logo {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-decoration: none;
+        img {
+            max-width: 70px;
+        }
+        span {
+            display: block;
+            font-family: $fontfamily-second;            
+        }
+        .logo-title {
+            padding-left: 5px;
+        }
+        .logo-ultimate {
+            color: $themePrimaryColor;
+            font-size: 26px;
+            line-height: 19px;
+            font-weight: 600;
+        }
+        .logo-electronics {
+            color: $fontHoverColor;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 2.9px;
+        }
+    }
+}
+header {
+    .icon-menu .my-account div {
+        display: none;
+    }
+    .top_header {
+        background-color: $topHeadbgColor;
+    }
+    .header-set {
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .top-custom-link {
+        li {
+            padding: 9px 0;
+        }
+        a {
+            font-size: $font12;
+            color: $fontColor;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover {
+                color: $fontHoverColor;
+            }
+            span.material-icons {
+                padding-right:5px;
+                font-size: $font16;
+            }
+        }
+        ul {
+            li + li {
+                margin-left: 15px;
+            }
+        }
+    }
+    strong {
+        span {
+            font-size: $font12;
+            color: $fontColor;
+            font-weight: $fontWeight400;
+            cursor: pointer;
+        }
+        &:hover {
+            span {
+                color: $fontHoverColor;
+            }
+        }
+        span.material-icons {
+            font-size: 15px;
+            vertical-align: middle;
+        }
+    }
+    .switcher-currency {
+        margin-left: 30px;
+    }
+    .menu-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        ul {
+            margin-bottom: 0px;
+        }
+        li {
+
+            vertical-align: middle;
+            a {
+                padding:18px 19px;
+                font-size: 14px;
+                color: $themePrimaryColor;
+                white-space: nowrap;
+                margin: 0;
+                cursor: pointer;
+                text-decoration: none;
+            }
+            &:last-child {
+                a {
+                    padding-right: 0px;
+                }
+            }
+        }
+    }
+    .bottom-header {
+        background-color: $themePrimaryColor;
+    }
+    .category-title {
+    padding: 0 28px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #363636;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+        span {
+            color: $whiteColor;
+        }
+        span.material-icons {
+            margin-right: 15px;
+        }
+    }
+    .block-search {
+        display: block;
+        width: 70%;
+        margin: 0 auto;
+        form {
+            border-radius: 40px;
+            margin: 6px auto;
+            padding: 0;
+            background-color: $whiteColor;
+            max-width: 580px;
+        }
+    }
+    .search-section {
+        width: 100%;
+        display: flex;
+        justify-content: space-between
+    }
+    .icon-menu {
+        display: inline-block;
+        vertical-align: middle;
+        div {
+            color: $whiteColor;
+            padding: 12px 20px 9px 0;
+            display: inline-block;
+            span {
+                cursor: pointer;
+            }
+        }
+        div:last-child {
+            padding-right: 0px;
+        }
+        span {
+            vertical-align: middle;
+        }
+    } 
+    #vertical-categorymenu {
+        position: absolute;
+        top: 100%;
+        background-color: $whiteColor;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding-left: 0px;
+        max-height: 0;
+        transition: max-height 0.30s ease-out;
+        overflow: hidden;
+        li {
+            display: block;
+            position: relative;
+            width:100%;
+            a {
+                color: $themePrimaryColor;
+                display: block;
+                padding: 12px 40px 12px 25px;
+                font-size: 14px;
+                position: relative;
+                line-height: 1.75;
+                text-decoration: none;
+            }
+            &:hover {
+                a {
+                    color: $fontHoverColor;
+                }
+            }
+        }
+        li:not(:last-child) {
+            a {
+                border-bottom: 1px solid #eee;
+            }
+        }
+    }
+    #vertical-categorymenu.vertical-menu.show {
+        max-height: 376px;
+        transition: max-height 0.30s ease-in;
+    }
+    .categorymenu-wrapper {
+        position: relative;
+    }
+}
+@media(min-width: 768px) {
+    .action.search {
+        display: none;
+    }
+}
+@media(min-width: 993px) {
+    .mobile-menu-icon {
+        display: none;
+    }
+}
+@media (max-width:1024px) {
+    header {
+        .header-set {
+           display: none !important;
+        }
+        .category-title {
+            background-color: transparent;
+            padding-left: 0px;
+        }
+        .custom-link {
+            width: 100%;
+            flex: 100%;
+            max-width: 100%;
+            ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+        .top-custom-link {
+            li {
+                padding:5px 0;
+            }
+        }
+        .icon-menu {
+            display: inline-block;
+            width: auto;
+        }
+    }
+}
+@media(max-width:992px) {
+    header {
+        .menu-wrapper{
+            right:-300px;
+            display: block;
+            transition: all 0.60s ease 0s;
+            // display: none;
+            position: fixed;
+            left: inherit;
+            // right:0;
+            z-index: 1100;
+            width: 300px;
+            height: 100%;
+            // transform: translate3d(0px , 0px, -100%);
+        }
+        .main-menu-section.active {
+            .menu-wrapper {
+                display: block;
+                right: 0px;
+                transition: all 0.50s ease 0s;
+            }
+        }
+        .logo {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+    
+}
+@media(max-width: 767px) {
+    body {
+        .logo {
+            img {
+                max-width: 50px;
+            }
+            .logo-electronics {
+                letter-spacing: 1.7px;
+            }
+            .logo-ultimate {
+                font-size: 23px;
+            }
+        }
+    }
+    header {
+        .block-search {
+            width: auto;
+            margin-left: auto;
+            margin-right: 0px;
+            form {
+                max-height: 0px;
+                overflow: hidden;
+                display: block;
+                position: absolute;
+                width: 100%;
+                right: 10px;
+                transition: max-height 0.30s ease-in;
+                box-shadow:0 5.5px 5.5px rgba(0, 0, 0, 0.19);
+            }
+        }
+        .action.search {
+            padding: 12px 10px 9px 0;
+            span {
+                display: block;
+                color: $whiteColor;
+                font-size: 30px;   
+            }
+        } 
+        .search-section {
+            align-items: center;
+        }
+        .icon-menu {
+            div {
+                padding-right: 10px;
+            }
+        }
+        form.show-search {
+            max-height: 36px;
+            transition: max-height 0.30s ease-in;
+        }
+    }
+    .middle-header-content-right {
+        width: 100%;
+        position: absolute;
+        right: 0;
+        z-index: 10;
+    }
+    .middle-header-content-left {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .field.search {
+        input {
+            padding-left: 15px;
+        }
+    }
+}

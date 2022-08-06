@@ -5,7 +5,7 @@ class ReviewListing extends reviewsListingApp {
     render() {
         return (
             <div className="review-listing-main-container">
-                <h3>Customer Reviews</h3>
+                {/* <h3>Customer Reviews</h3> */}
                 <div className="review-listing-block">
                     <div className="pro_review_listing_main_container">
                         {!this.state.loading

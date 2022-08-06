@@ -1,3 +1,26 @@
+@import '../partials/variables.scss';
+
+.product-load-more {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.filter_input_list .custom-checkbox input {
+    display:none;
+}
+.filter_input_list .custom-checkbox input[checked] + .custom-control-label {
+    border:1px solid $themePrimaryColor;
+    background-color: $themePrimaryColor;
+    color: $whiteColor;
+    font-weight: $fontWeight400;
+}
+.filter_input_list .custom-checkbox .custom-control-label {
+    display: inline-block;
+    border: 1px solid #ececec;
+    margin:0 5px 10px;
+    padding: 5px 15px;
+    font-size: 13px;
+    font-weight: 300;
+}
 .grid-view-btn {
     display: flex;
     align-items: center;
@@ -92,8 +115,8 @@
     }
     .filter-options-item {
         .Collapsible > span {
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 400;
             color: #222;
             position: relative;
             display: block;
@@ -140,7 +163,10 @@
     ul.fcolor_list {
         padding-left: 0px;
         display: flex;
-        margin-bottom: 0px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+        margin-left: -5px;
+        margin-right: -5px;
         .custom-checkbox {
             padding-left: 0px;
             label:before {
@@ -303,9 +329,14 @@
         .grid-view-btn {
             display: none;
         }
-    }
+    }   
 }
 @media(max-width:992px) {
+    .filter_close {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
     .category-page {
         .filter-left-section {
             position: fixed;
@@ -323,6 +354,7 @@
             -ms-transform: translateX(-325px);
             transform: translateX(-325px);
             box-shadow: 0 5.5px 5.5px rgba(0 ,0 ,0 ,0.19);
+            overflow-y: auto;
             .main-sidebar {
                 padding: 20px 0px 20px 20px;
             }

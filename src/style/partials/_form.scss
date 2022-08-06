@@ -1,0 +1,86 @@
+@import './variables';
+
+//sign-in,sign-up,forgot-pass
+
+.fieldset .field.note {
+    margin-top: 0;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: $fontColor;
+}
+.login-form,.register-form,.forgotpassword-form,.guest-login-form {
+    width: 60%;
+}
+.login-form .actions-toolbar,.address-form .actions-toolbar {
+    margin-top: 20px;
+}
+.address-form .row {
+    margin-bottom: 16px;
+}
+.primary button {
+    background-color: $themePrimaryColor;
+    color: $whiteColor;
+}
+.login .page-main,.register .page-main,.forgot-password .page-main {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.login .secondary,.register .secondary {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+.custom_link {
+    padding:0 10px;
+    color: #555;
+    &:hover {
+        color: $fontHoverColor;
+    }
+}
+.login span:last-child .custom_link,.register span:last-child .custom_link{
+    border-left: 1px solid #555;
+}
+.customer-name-fields {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.register .actions-toolbar,.guest-login-form .actions-toolbar,.checkout_shipping_method_container .actions-toolbar {
+    margin-top: 20px;
+}
+.forgotpassword-form .actions-toolbar {
+    margin-top: 10px;
+}
+.register .secondary {
+    margin-top: 20px;
+}
+.forgotpassword-form .actions-toolbar {
+    display: flex;
+    .secondary {
+        margin-left: 16px;
+    }
+    div {
+        margin-top: 10px;
+    }
+}
+@media(min-width:768px) {
+    .checkout_shipping_method_container,.address-form {
+        padding: 0 15px;
+    }
+}
+@media(max-width:767px) {
+    .login-form,.register-form,.forgotpassword-form,.guest-login-form {
+        width: 100%;
+    }
+}
+@media(max-width:480px) {
+    .forgotpassword-form .actions-toolbar {
+        flex-direction: column;
+        button {
+            width: 100%;
+        }
+        .secondary {
+            margin-left: 0px;
+        }
+    }  
+}

@@ -3,7 +3,7 @@ import ProductDetailInfo from './ProductDetailInfo';
 import ProductImageSlider from './ProductImageSlider';
 import ProDetailTab from './productDetailTab';
 import ShippingInfo from '../home/ShippingInfo';
-import ProductDetailSlider from './productDetailSlider';
+import ProductDetailSlider from './ProductDetailSlider';
 
 const ProductDetailMain = ({ productDetail }) => {
     return (

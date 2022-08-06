@@ -8,7 +8,7 @@ export default class FilterColors extends React.Component {
             <div className="filter-options-item"> 
                  <Collapsible open trigger="Filter by Color">
                     <div className="filter-options-content fcolor_content">
-                        <ul className="filter_input_list fcolor_list">
+                        <ul className="filter_input_list fcolor_list fcolor">
                             <li>
                                 <div className="custom-control custom-checkbox class_tooltip">
                                     <input type="checkbox" className="custom-control-input" id="filc_check1" />

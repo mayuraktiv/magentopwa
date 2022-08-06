@@ -28,8 +28,8 @@ body {
     }
 }
 header {
-    .icon-menu .my-account div {
-        display: none;
+    .icon-menu .cart_bubble_box {
+        padding: 0px;
     }
     .top_header {
         background-color: $topHeadbgColor;
@@ -109,6 +109,9 @@ header {
     }
     .bottom-header {
         background-color: $themePrimaryColor;
+        .middle-header-content-right {
+            display: flex;
+        }
     }
     .category-title {
     padding: 0 28px;
@@ -142,11 +145,50 @@ header {
     .search-section {
         width: 100%;
         display: flex;
-        justify-content: space-between
+        justify-content: space-between;
+        align-items: center;
     }
     .icon-menu {
         display: inline-block;
         vertical-align: middle;
+        .my-account {
+            position: relative;
+            &:hover {
+                .header-acccount {
+                    max-height: 164px;
+                    opacity: 1; 
+                    visibility: visible; 
+                }
+            }
+        }
+        .header-links {
+            padding-left: 0px;
+            min-width: 162px;
+            background-color: $whiteColor;
+            font-family: $fontfamily;
+            color: $fontColor;
+            margin-bottom: 0px;
+        }
+        .header-acccount {
+            position: absolute;
+            top:28px;
+            left:50%;
+            transform: translateX(-50%);
+            z-index:2;
+            max-height: 0px;
+            opacity: 0;
+            transition: max-height 0.15s ease-out;
+            visibility: hidden;
+            li a {
+                padding: 10px;
+                color: $themePrimaryColor;
+                font-size: 14px;
+                display: inline-block;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
         div {
             color: $whiteColor;
             padding: 12px 20px 9px 0;
@@ -305,7 +347,7 @@ header {
             }
         }
         .action.search {
-            padding: 12px 10px 9px 0;
+            padding: 12px 5px 9px 5px;
             span {
                 display: block;
                 color: $whiteColor;
@@ -317,7 +359,7 @@ header {
         }
         .icon-menu {
             div {
-                padding-right: 10px;
+                padding: 0 5px;
             }
         }
         form.show-search {
