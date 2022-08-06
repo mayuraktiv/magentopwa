@@ -105,6 +105,26 @@ graphQlQuery.categories = () => {
       } 
     }
   `;
+}
+
+graphQlQuery.categories = () => {
+  return `
+    allCategories {
+      list {
+        children_count
+        description
+        image
+        meta_description
+        meta_keywords
+        meta_title
+        name
+        parent_uid
+        uid
+        url_key
+        url_path
+      } 
+    }
+  `;
 };
 
 graphQlQuery.cart = () => {
@@ -271,7 +291,7 @@ graphQlQuery.ratingOptionsQuery = () => {
 };
 
 graphQlQuery.storeConfigQuery = () => {
-    return `
+  return `
         storeConfig{
             store_code
             website_name
@@ -281,7 +301,7 @@ graphQlQuery.storeConfigQuery = () => {
             root_category_uid
         }
       `;
-  };
+};
 
 graphQlQuery.prepareRatingOptionQuery = (data) => {
   return `${Object.keys(data)
@@ -299,11 +319,11 @@ graphQlQuery.prepareFilterQuery = (data) => {
   let query = `filter: {
         ${graphQlQuery.prepareCategryFilter(data)}
         ${Object.keys(data.appliedFilters)
-          .filter(
-            (item) =>
-              item !== "price" && item !== "q" && item !== "product_list_order"
-          )
-          .map((key) => `${key}: { eq: "${data.appliedFilters[key]}" }`)}
+      .filter(
+        (item) =>
+          item !== "price" && item !== "q" && item !== "product_list_order"
+      )
+      .map((key) => `${key}: { eq: "${data.appliedFilters[key]}" }`)}
         ${graphQlQuery.preparePriceFilter(data)}
     }`;
   return query;

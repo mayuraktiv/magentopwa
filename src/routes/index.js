@@ -18,6 +18,7 @@ import ForgotPassword from '../pages/ForgotPassword';
 import Checkout from '../pages/Checkout';
 
 const MainRouter = () => {
+    console.log("MainRouter--->");
     return (
         <ConfigProvider>
             <CartProvider>
