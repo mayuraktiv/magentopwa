@@ -303,6 +303,20 @@ graphQlQuery.storeConfigQuery = () => {
       `;
 };
 
+graphQlQuery.countries = () => {
+  return `
+    countries {
+      regions:available_regions {
+        code
+        id
+        name
+      }
+      name:full_name_english
+      id
+    } 
+  `;
+};
+
 graphQlQuery.prepareRatingOptionQuery = (data) => {
   return `${Object.keys(data)
     .filter(

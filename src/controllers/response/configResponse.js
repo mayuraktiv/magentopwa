@@ -23,8 +23,9 @@ configResponse.parse = (res) => {
     categories: [],
     storeConfig: {},
     rating_options: [],
+    countries: []
   };
-  const [allCategories, ratingOptions, storeConfig] = res;
+  const [allCategories, ratingOptions, storeConfig, countries] = res;
 
   if (ratingOptions?.data?.productReviewRatingsMetadata?.items?.length > 0) {
     configData["rating_options"] =
@@ -41,6 +42,9 @@ configResponse.parse = (res) => {
     }
   }
 
+  if(countries?.data?.countries?.length > 0) {
+    configData.countries = countries.data.countries;
+  }
   return configData;
 };
 

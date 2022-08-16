@@ -32,6 +32,8 @@ class configApp extends Component {
         nodeValues["cms_pages"] = [];
         nodes["rating_options"] = "rating_options";
         nodeValues["rating_options"] = configData.rating_options;
+        nodes["countries"] = "countries";
+        nodeValues["countries"] = configData.countries;
         this.props.storeData(nodes, nodeValues);
     };
 
