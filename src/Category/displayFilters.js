@@ -1,7 +1,7 @@
 import Collapsible from "react-collapsible";
 
 const DisplayFilter = (props) => {
-    console.log("DisplayFilter--->", props);
+    // console.log("DisplayFilter--->", props);
     return (
         <div className="filter-options-item">
             {props.filters?.map(item => (

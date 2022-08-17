@@ -4,7 +4,7 @@ import CatLeftSec from "./catLeftSidebar";
 
 const CatContainer = (props) => {
     const [show, setShow] = React.useState();
-    console.log("CatContainer----->", props);
+    // console.log("CatContainer----->", props);
     return (
         <div className="frame">
             <div className="cat-row">

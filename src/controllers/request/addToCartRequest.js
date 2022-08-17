@@ -5,6 +5,7 @@ import cartResponse from "../response/cartResponse";
 const addToCartRequest = {};
 
 addToCartRequest.addToCart = async (data) => {
+    // console.log("dtaa",data)
     const request = JSON.stringify({
         query: `mutation {
             addProductsToCart(
@@ -25,10 +26,12 @@ addToCartRequest.addToCart = async (data) => {
 
     let res = await fetchRequest.executePostFetch(request);
     let cartData = false;
+    // console.log(res)
     if(res?.data?.addProductsToCart?.cart) {
         cartData = cartResponse.parse(res.data.addProductsToCart.cart);
     }
-    return cartData
+    return cartData;
+    // console.log("cartData",cartData)
 }
 
 export default addToCartRequest;

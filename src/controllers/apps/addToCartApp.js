@@ -32,16 +32,22 @@ class addToCartApp extends Component {
             ...this.state,
             sku: this.props.sku
         }
+        let nodes = {};
+        let nodeValues = {};
         this.setState({ loading: true });
         const cartData = await addToCartRequest.addToCart(data);
         this.setState({ loading: false });
+        nodes["product"] = "product";
+        nodeValues["product"] = cartData.product;
         if(cartData) {
             this.props.storeData('cart_details', cartData);
         }
     }
 
     static mapStateToProps = state => {
-        return {};
+        return {
+            product:state.db.productDetailSlider
+        };
     }
 
     static mapDispatchToProps = dispatch => {

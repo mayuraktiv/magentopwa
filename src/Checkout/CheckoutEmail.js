@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import checkoutApp from '../controllers/apps/checkoutApp';
 
-export default class CheckoutEmail extends Component {
+export default class CheckoutEmail extends checkoutApp {
     render() {
         return (
             <div className='checkout_first_step box1'>
@@ -12,8 +12,10 @@ export default class CheckoutEmail extends Component {
                         <label className='label' for='emial'>
                             <span>Email Address</span>
                         </label>
+                        
                         <div className='control'>
-                            <input type='email' id='email' className='input-text'></input>
+                            <input type='email' id='email' name="email" value={this.state.email} className='input-text' onChange={this.onEmailChangeHandler} onBlur={this.setGuestEmail}/>
+                            {!this.state.isValidEmail && <p style={{color:"red"}}>Please Enter Valid Email</p>}
                         </div>
                     </div>
                    </div>

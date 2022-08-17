@@ -1,3 +1,5 @@
+import localStorageKeys from "../constants/localStorageKeys";
+
 const fetchRequest = {};
 
 fetchRequest.executeFetch = async (request) => {
@@ -29,11 +31,15 @@ fetchRequest.executePostFetch = async (request) => {
     return data;
 }
 
+
 fetchRequest.getHeaders = () => {
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer qeyc29tkjrykpgd8oelnpi7wu9rmyj5k");
+    const authorizationToken = localStorage.getItem(localStorageKeys.AUTHORIZATION_TOKEN)
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Accept", "application/json");
+    if(authorizationToken?.length > 0) {
+        myHeaders.append("Authorization", `Bearer ${authorizationToken}`);
+    }
     return myHeaders
 }
 

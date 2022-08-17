@@ -2,7 +2,7 @@ import React from 'react';
 import ProductView from './ProductView';
 
 const CatRightSec = (props) => {
-    console.log("CatRightSec---->", props);
+    // console.log("CatRightSec---->", props);
     return (
         <div className="column main" >
             {/* <Toolbar/> */}

@@ -5,7 +5,7 @@ import FilterSize from './FilterbySize';
 import DisplayFilter from './displayFilters';
 
 const MainSidebar = (props) => {
-    console.log("MainSidebar---->", props);
+    // console.log("MainSidebar---->", props);
     return (
         <div className="main-sidebar">
             <div className="block-filter-content">
