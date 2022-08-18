@@ -1,7 +1,7 @@
 const validateField = (rule, value) => {
   let isValid = true;
-  const type = rule.type;
-  const require = rule.require;
+  const type = rule?.type;
+  const require = rule?.require;
   if (require) {
     switch (type) {
       case "text":

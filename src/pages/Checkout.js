@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import CheckoutEmail from "../Checkout/CheckoutEmail";
-import UserShippingaddress from "../User/UserShippingaddress";
+import ShippingAddress from "../Checkout/ShippingAddress";
+import BillingAddress from "../Checkout/BillingAddress";
 import CheckoutShippingMethod from "../Checkout/CheckoutShippingMethod";
 import CheckoutPaymetMethod from "../Checkout/CheckoutPaymentMethod";
 import CheckoutCouponCode from "../Checkout/CouponCode";
@@ -14,7 +15,7 @@ class Checkout extends Component {
     return (
       <div id="page_wrapper">
         <div className="checkout-page">
-          <Header></Header>
+          <Header />
           <div id="maincontent" className="page-main">
             <div className="checkout_page_main_container">
               <div className="checkout_content">
@@ -30,14 +31,14 @@ class Checkout extends Component {
                         <span className="mark"></span>
                         <span>Shipping Address</span>
                       </h3>
-                      <UserShippingaddress></UserShippingaddress>
+                      <ShippingAddress />
                     </div>
                     <div className="checkout_third_step box1">
                       <h3 className="checkout-title">
                         <span className="mark"></span>
                         <span>Shipping Method</span>
                       </h3>
-                      <CheckoutShippingMethod></CheckoutShippingMethod>
+                      <CheckoutShippingMethod />
                     </div>
                   </div>
                   <div className="checkout_panel_paymentmethod">
@@ -46,7 +47,7 @@ class Checkout extends Component {
                         <span className="mark"></span>
                         <span>Payment Method</span>
                       </h3>
-                      <CheckoutPaymetMethod></CheckoutPaymetMethod>
+                      <CheckoutPaymetMethod />
                       <div className="field choice">
                         <input
                           type="checkbox"
@@ -58,18 +59,17 @@ class Checkout extends Component {
                           <span>Change Billing Address</span>
                         </label>
                       </div>
-                      <UserShippingaddress></UserShippingaddress>
+                      <BillingAddress />
                       <div className="new-shipping-address-form">
                         <span className="title">Add New Address</span>
                       </div>
-                      <UserShippingaddressdetail></UserShippingaddressdetail>
+                      <UserShippingaddressdetail />
                     </div>
                     <div className="checkout_coupon_code box1">
-                      <CheckoutCouponCode></CheckoutCouponCode>
+                      <CheckoutCouponCode />
                     </div>
                   </div>
                   <div className="checkout_panel_ordersummary box1">
-                    {/* <CheckoutSummary></CheckoutSummary> */}
                     <button className="btn btn-default btn-bg place_order">
                       PLACE ORDER
                     </button>
@@ -78,7 +78,7 @@ class Checkout extends Component {
               </div>
             </div>
           </div>
-          <Footer></Footer>
+          <Footer />
         </div>
       </div>
     );

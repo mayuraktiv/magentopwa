@@ -6,6 +6,10 @@ import graphQlQuery from "../lib/graphQlQuery";
 const billingAddressRequest = {};
 
 billingAddressRequest.setBillingAddress = async (data) => {
+  const regionQry =
+    data?.region_id?.length > 0
+      ? `region_id: ${data.region_id}`
+      : `region: "${data.region}"`;
   const request = JSON.stringify({
     query: `mutation {
         setBillingAddressOnCart(
@@ -14,15 +18,13 @@ billingAddressRequest.setBillingAddress = async (data) => {
             billing_address: {
               address: {
                 firstname: "${data.firstname}"
-                lastname: "${data.lastname}"
-                company: "Magento"
-                street: ["Magento Pkwy", "Main Street"]
-                city: "${data.city}"
-                region: "TX"
-                postcode: "${data.pincode}"
-                country_code: "US"
-                telephone: "${data.telephone}"
-                save_in_address_book: true
+                  lastname:"${data.lastname}"
+                  street: ["${data.street}"]
+                  city: "${data.city}"
+                  ${regionQry}
+                  country_code: "${data.country_code}"
+                  postcode: "${data.postcode}"
+                  telephone: "${data.telephone}"
               }
               same_as_shipping: true
             }

@@ -24,7 +24,7 @@ shippingAddressRequest.setShippingAddress = async (data) => {
                   city: "${data.city}"
                   ${regionQry}
                   country_code: "${data.country_code}"
-                  postcode: "${data.pincode}"
+                  postcode: "${data.postcode}"
                   telephone: "${data.telephone}"
                 },
               }
@@ -44,7 +44,6 @@ shippingAddressRequest.setShippingAddress = async (data) => {
   if (res?.data?.setShippingAddressesOnCart?.cart) {
     cartData = cartResponse.parse(res.data.setShippingAddressesOnCart.cart);
   }
-  console.log("cartDAta", cartData);
   return cartData;
 };
 

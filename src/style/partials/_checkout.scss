@@ -62,6 +62,11 @@
     color: $fontColor;
     font-weight: 300;
 }
+
+.checkout_first_step .authentication-desc {
+    padding-top: 15px;
+    display: block;
+}
 .checkout_first_step .authentication-link a {
     color: $fontHoverColor;
 }

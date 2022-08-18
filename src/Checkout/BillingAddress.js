@@ -1,11 +1,11 @@
+import { Fragment } from "react";
 import { connect } from "react-redux";
-import shippingAddressApp from "../controllers/apps/shippingAddressApp";
+import billingAddressApp from "../controllers/apps/billingAddressApp";
 
-class UserShippingaddress extends shippingAddressApp {
+class BillingAddress extends billingAddressApp {
   render() {
-    console.log("UserShippingaddress----->", this.state);
     return (
-      <form className="address-form" onSubmit={this.setShippingAdreess}>
+      <form className="address-form" onSubmit={this.onFormSubmit}>
         <fieldset className="fieldset">
           <div className="row">
             <div className="col-des-6 col-tb-6 col-mb-12 field-name-firstname">
@@ -21,6 +21,11 @@ class UserShippingaddress extends shippingAddressApp {
                   value={this.state.form.firstname}
                   onChange={this.onValueChangeHandler}
                 />
+                {!this.state.validation.firstname.valid &&
+                  <div className="input-error-message">
+                    Required
+                  </div>
+                }
               </div>
             </div>
             <div className="col-des-6 col-tb-6 col-mb-12 field-name-lastname">
@@ -36,6 +41,11 @@ class UserShippingaddress extends shippingAddressApp {
                   value={this.state.form.lastname}
                   onChange={this.onValueChangeHandler}
                 />
+                {!this.state.validation.lastname.valid &&
+                  <div className="input-error-message">
+                    Required
+                  </div>
+                }
               </div>
             </div>
           </div>
@@ -52,7 +62,12 @@ class UserShippingaddress extends shippingAddressApp {
                   name="telephone"
                   value={this.state.form.telephone}
                   onChange={this.onValueChangeHandler}
-                ></input>
+                />
+                {!this.state.validation.telephone.valid &&
+                  <div className="input-error-message">
+                    Required
+                  </div>
+                }
               </div>
             </div>
             <div className="col-des-6 col-tb-6 col-mb-12">
@@ -65,9 +80,14 @@ class UserShippingaddress extends shippingAddressApp {
                   id="street"
                   className="input-text"
                   name="street"
-                  value={this.state.form.address}
+                  value={this.state.form.street}
                   onChange={this.onValueChangeHandler}
-                ></input>
+                />
+                {!this.state.validation.street.valid &&
+                  <div className="input-error-message">
+                    Required
+                  </div>
+                }
               </div>
             </div>
           </div>
@@ -84,7 +104,12 @@ class UserShippingaddress extends shippingAddressApp {
                   name="city"
                   value={this.state.form.city}
                   onChange={this.onValueChangeHandler}
-                ></input>
+                />
+                {!this.state.validation.city.valid &&
+                  <div className="input-error-message">
+                    Required
+                  </div>
+                }
               </div>
             </div>
             <div className="col-des-6 col-tb-6 col-mb-12">
@@ -101,10 +126,15 @@ class UserShippingaddress extends shippingAddressApp {
                   <option value="">Please select country</option>
                   {this.props.countries.map((item) => (
                     <option value={item.id} key={`country-${item.id}`}>
-                       {item.name}
+                      {item.name}
                     </option>
                   ))}
                 </select>
+                {!this.state.validation.country_code.valid &&
+                  <div className="input-error-message">
+                    Required
+                  </div>
+                }
               </div>
             </div>
           </div>
@@ -115,30 +145,43 @@ class UserShippingaddress extends shippingAddressApp {
               </label>
               <div className="control">
                 {this.state.states.length > 0 ? (
-                  <select
-                    id="region_id"
-                    name="region_id"
-                    onChange={this.onValueChangeHandler}
-                    value={this.state.form.region_id}
-                  >
-                    <option value="">Please select state</option>
-                    {this.state.states?.map((item) => (
-                      <option value={item.id} key={`country-${item.id}`}>
-                        {item.name}
-                        {/* {console.log("item",item.name)} */}
-                      </option>
-                    ))}
-                  </select>
+                  <Fragment>
+                    <select
+                      id="region_id"
+                      name="region_id"
+                      onChange={this.onValueChangeHandler}
+                      value={this.state.form.region_id}
+                    >
+                      <option value="">Please select state</option>
+                      {this.state.states?.map((item) => (
+                        <option value={item.id} key={`country-${item.id}`}>
+                          {item.name}
+                        </option>
+                      ))}
+                    </select>
+                    {!this.state.validation.region_id.valid &&
+                      <div className="input-error-message">
+                        Required
+                      </div>
+                    }
+                  </Fragment>
                 ) : (
-                  <input
-                    type="text"
-                    id="region"
-                    className="input-text"
-                    name="region"
-                    placeholder="state"
-                    value={this.state.form.region}
-                    onChange={this.onValueChangeHandler}
-                  />
+                  <Fragment>
+                    <input
+                      type="text"
+                      id="region"
+                      className="input-text"
+                      name="region"
+                      placeholder="state"
+                      value={this.state.form.region}
+                      onChange={this.onValueChangeHandler}
+                    />
+                    {!this.state.validation.region.valid &&
+                      <div className="input-error-message">
+                        Required
+                      </div>
+                    }
+                  </Fragment>
                 )}
               </div>
             </div>
@@ -149,19 +192,24 @@ class UserShippingaddress extends shippingAddressApp {
               <div className="control">
                 <input
                   type="text"
-                  id="pincode"
+                  id="postcode"
                   className="input-text"
-                  name="pincode"
-                  value={this.state.form.pincode}
+                  name="postcode"
+                  value={this.state.form.postcode}
                   onChange={this.onValueChangeHandler}
-                ></input>
+                />
+                {!this.state.validation.postcode.valid &&
+                  <div className="input-error-message">
+                    Required
+                  </div>
+                }
               </div>
             </div>
           </div>
         </fieldset>
         <div className="actions-toolbar">
           <div className="primary">
-            <button type="submit" class="btn btn-default">
+            <button type="submit" className={this.state.isValidForm ? "btn btn-default" : "btn btn-default disabled"} disabled={!this.state.isValidForm}>
               <span>Save</span>
             </button>
           </div>
@@ -171,6 +219,6 @@ class UserShippingaddress extends shippingAddressApp {
   }
 }
 export default connect(
-  shippingAddressApp.mapStateToProps,
-  shippingAddressApp.mapDispatchToProps
-)(UserShippingaddress);
+  billingAddressApp.mapStateToProps,
+  billingAddressApp.mapDispatchToProps
+)(BillingAddress);

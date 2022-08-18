@@ -3,7 +3,7 @@ import localStorageKeys from "../constants/localStorageKeys";
 const fetchRequest = {};
 
 fetchRequest.executeFetch = async (request) => {
-    let url = "http://jsmagento.ictstagingsite.com/graphql?query=" + encodeURIComponent(request);
+    let url = "http://localhost/react-magento/graphql?query=" + encodeURIComponent(request);
     const response = await fetch(url, {
         method: "GET",
         headers: fetchRequest.getHeaders()
@@ -17,7 +17,7 @@ fetchRequest.executeFetch = async (request) => {
 };
 
 fetchRequest.executePostFetch = async (request) => {
-    let url = "http://jsmagento.ictstagingsite.com/graphql";
+    let url = "http://localhost/react-magento/graphql";
     const response = await fetch(url, {
         method: "POST",
         headers: fetchRequest.getHeaders(),

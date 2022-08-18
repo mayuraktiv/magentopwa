@@ -27,7 +27,6 @@ paymentMethodRequest.setPaymentMethod = async (data) => {
   if (res?.data?.setPaymentMethodOnCart?.cart) {
     cartData = cartResponse.parse(res.data.setPaymentMethodOnCart.cart);
   }
-  console.log("cartData",cartData)
 };
 
 export default paymentMethodRequest;

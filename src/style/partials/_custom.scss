@@ -641,6 +641,21 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
         }
     }
 } 
+
+.input-error-message {
+    position: absolute;
+    margin-top: 0px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #FF9494;
+    line-height: 1.75;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
 // .class_tooltip {
 //     position: relative;
 //     display: inline-block;
