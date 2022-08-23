@@ -60,10 +60,10 @@ class Checkout extends Component {
                         </label>
                       </div>
                       <BillingAddress />
-                      <div className="new-shipping-address-form">
+                      {/* <div className="new-shipping-address-form">
                         <span className="title">Add New Address</span>
                       </div>
-                      <UserShippingaddressdetail />
+                      <UserShippingaddressdetail /> */}
                     </div>
                     <div className="checkout_coupon_code box1">
                       <CheckoutCouponCode />
