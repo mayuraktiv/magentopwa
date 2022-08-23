@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import Account from '../MyAccount/Account';
+import reduxActions from '../controllers/redux/actions/reduxActions';
 import '../style/base.scss';
 import '../style/partials/_account.scss';
 
@@ -20,5 +20,7 @@ export default class MyAccount extends Component {
             </div>
         );
     }
+
+  
 }
 

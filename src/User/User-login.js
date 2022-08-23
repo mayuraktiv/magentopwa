@@ -1,6 +1,7 @@
 import LoginApp from "../controllers/apps/LoginApp";
+import { connect } from "react-redux";
 
-export default class Userlogin extends LoginApp {
+class Userlogin extends LoginApp {
   render() {
     return (
       <div className="block-content">
@@ -62,3 +63,5 @@ export default class Userlogin extends LoginApp {
     );
   }
 }
+
+export default connect(LoginApp.mapStateToProps, LoginApp.mapDispatchToProps)(Userlogin);

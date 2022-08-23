@@ -1,6 +1,6 @@
 import { Component } from "react";
 import reduxActions from "../redux/actions/reduxActions";
-import loginUserRequest from "../request/loginUserRequest";
+import loginRequest from "../request/loginRequest";
 import { validateField, validateForm } from "../validation/checkValidity";
 
 class LoginApp extends Component {
@@ -74,10 +74,20 @@ class LoginApp extends Component {
 
   addLoginUser = async (data) => {
     this.setState({ loading: true });
-    const addLoginUser = await loginUserRequest.createUser(data);
-    this.setAddLoginForm();
-    if (addLoginUser) {
-      this.props.storeData("cart_details", addLoginUser);
+    const profile = await loginRequest.login(data);
+    console.log("addLoginUser--->", profile);
+    if (profile) {
+      let nodes = {};
+      let nodeValues = {};
+      nodes["cart_details"] = "cart_details";
+      nodeValues["cart_details"] = profile.cart_details;
+
+      nodes["userdata"] = "userdata";
+      nodeValues["userdata"] = profile.userdata;
+
+      nodes["user_status"] = "user_status";
+      nodeValues["user_status"] = true;
+      this.props.storeData(nodes, nodeValues);
     }
   };
 
@@ -87,7 +97,7 @@ class LoginApp extends Component {
 
   static mapDispatchToProps = (dispatch) => {
     return {
-      storeData: (node, data) => dispatch(reduxActions.replaceData(node, data)),
+      storeData: (node, data) => dispatch(reduxActions.mergeData(node, data)),
     };
   };
 }
