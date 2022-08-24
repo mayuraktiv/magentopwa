@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
-import Account from '../MyAccount/Account';
-import reduxActions from '../controllers/redux/actions/reduxActions';
-import '../style/base.scss';
-import '../style/partials/_account.scss';
+import React, { Component } from "react";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import Account from "../MyAccount/Account";
+import "../style/base.scss";
+import "../style/partials/_account.scss";
 
-export default class MyAccount extends Component {
-    render() {
-        return (
-            <div id="page_wrapper">
-                <div className="myaccount">
-                    <Header></Header>
-                    <div id="maincontent" className="page-main">
-                        <Account></Account>
-                    </div>
-                    <Footer></Footer>
-                </div>
-            </div>
-        );
-    }
-
-  
+class MyAccount extends Component {
+  render() {
+    return (
+      <div id="page_wrapper">
+        <div className="myaccount">
+          <Header></Header>
+          <div id="maincontent" className="page-main">
+            <Account></Account>
+          </div>
+          <Footer></Footer>
+        </div>
+      </div>
+    );
+  }
 }
 
+export default MyAccount;

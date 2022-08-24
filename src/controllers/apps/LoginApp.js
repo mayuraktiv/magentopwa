@@ -76,6 +76,7 @@ class LoginApp extends Component {
     this.setState({ loading: true });
     const profile = await loginRequest.login(data);
     console.log("addLoginUser--->", profile);
+
     if (profile) {
       let nodes = {};
       let nodeValues = {};
@@ -91,8 +92,20 @@ class LoginApp extends Component {
     }
   };
 
-  static mapStateToProps = (state) => {
-    return {};
+  static mapStateToProps = (state,ownProps) => {
+    console.log("object1",state.db.history.path)
+    let profile = [];
+    let userdata={}
+    if (state?.db?.userdata?.addresses?.length > 0) {
+      profile = state.db.userdata.addresses;
+    }
+    if (state?.db?.userdata?.email?.length > 0) {
+      profile = state.db.userdata.email;
+    }
+    return {
+      profile,
+      userdata
+    };
   };
 
   static mapDispatchToProps = (dispatch) => {

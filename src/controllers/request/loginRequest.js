@@ -26,6 +26,7 @@ loginRequest.login = async (data) => {
     profile = await userProfileRequest.getUserProfile();
     console.log("profile---->", profile);
   }
+
   return profile;
 };
 

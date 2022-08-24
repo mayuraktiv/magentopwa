@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import MainSidebar from "../MyAccount/MainSidebar";
-import reduxActions from "../controllers/redux/actions/reduxActions";
+import { connect } from "react-redux";
+import LoginApp from "../controllers/apps/LoginApp";
 
-export default class Account extends Component {
+
+
+class Account extends  LoginApp{
   render() {
+    console.log("props",this.props)
     return (
       <div className="columns frame">
         <MainSidebar></MainSidebar>
         <div className="column main">
           <div className="block-dashboard-info">
             <div className="box-information">
-              <div className="block-title-account">
+              <div className="block-title-Account">
                 <h5>Contact Information</h5>
               </div>
               <div className="box-content">
@@ -31,7 +35,7 @@ export default class Account extends Component {
               </div>
             </div>
             {/* <div className='box-newsletter'>
-                            <div className='block-title-account'><h5>NEWSLETTERS</h5></div>
+                            <div className='block-title-Account'><h5>NEWSLETTERS</h5></div>
                             <div className='box-content'>
                                 <p>You aren't subscribed to our newsletter.</p>
                             </div>
@@ -41,7 +45,7 @@ export default class Account extends Component {
                         </div> */}
           </div>
           <div className="block-dashboard-addresses">
-            <div className="block-title-account">
+            <div className="block-title-Account">
               <h5>Address Book</h5>
             </div>
             <div className="block-content">
@@ -111,7 +115,7 @@ export default class Account extends Component {
             </div>
           </div>
           <div className="block-dashboard-orders">
-            <div className="block-title-account">
+            <div className="block-title-Account">
               <h5>Recent Orders</h5>
             </div>
             <div className="block-content">
@@ -165,13 +169,10 @@ export default class Account extends Component {
       </div>
     );
   }
-  static mapStateToProps = (state) => {
-    console.log("object", state.db);
-  };
-
-  static mapDispatchToProps = (dispatch) => {
-    return {
-      storeData: (node, data) => dispatch(reduxActions.replaceData(node, data)),
-    };
-  };
 }
+export default connect(
+  LoginApp.mapDispatchToProps,
+  LoginApp.mapStateToProps
+)(Account);
+
+
