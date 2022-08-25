@@ -61,6 +61,7 @@ class shippingAddressApp extends Component {
       },
       isValidForm: false,
       states: [],
+      loading: false
     };
   }
 
@@ -159,12 +160,14 @@ class shippingAddressApp extends Component {
 
   setShippingAdreess = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     const shippingAddress = await shippingAddressRequest.setShippingAddress({
       ...this.state.form,
     });
     if (shippingAddress) {
       this.props.storeData("cart_details", shippingAddress);
     }
+    this.setState({ loading: false });
   };
 
   static mapStateToProps = (state) => {

@@ -4,8 +4,6 @@ const cartResponse = {};
 
 cartResponse.parse = (cart) => {
     const cartData = cartParser.parse(cart);
-    // console.log("cartresponse",cartData)
-
     return cartData;
 };
 

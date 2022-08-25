@@ -209,9 +209,16 @@ class ShippingAddress extends shippingAddressApp {
         </fieldset>
         <div className="actions-toolbar">
           <div className="primary">
-            <button type="submit" className={this.state.isValidForm ? "btn btn-default" : "btn btn-default disabled"} disabled={!this.state.isValidForm}>
-              <span>Save</span>
-            </button>
+            {this.state.loading
+              ?
+              <button disabled className="btn btn-default">
+                <span>Wait...</span>
+              </button>
+              :
+              <button type="submit" className={this.state.isValidForm ? "btn btn-default" : "btn btn-default disabled"} disabled={!this.state.isValidForm}>
+                <span>Save</span>
+              </button>
+            }
           </div>
         </div>
       </form>

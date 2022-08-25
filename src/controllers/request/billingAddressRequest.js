@@ -26,7 +26,6 @@ billingAddressRequest.setBillingAddress = async (data) => {
                   postcode: "${data.postcode}"
                   telephone: "${data.telephone}"
               }
-              same_as_shipping: true
             }
           }
         ) {

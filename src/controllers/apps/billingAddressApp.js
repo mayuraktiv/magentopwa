@@ -61,6 +61,7 @@ class billingAddressApp extends Component {
       },
       isValidForm: false,
       states: [],
+      loading: false
     };
   }
 
@@ -159,12 +160,14 @@ class billingAddressApp extends Component {
 
   onFormSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     const billing_address = await billingAddressRequest.setBillingAddress({
       ...this.state.form,
     });
     if (billing_address) {
       this.props.storeData("cart_details", billing_address);
     }
+    this.setState({ loading: false });
   };
 
   static mapStateToProps = (state) => {

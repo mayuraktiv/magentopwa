@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from 'react-redux';
+import checkoutApp from "../controllers/apps/checkoutApp";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import CheckoutEmail from "../Checkout/CheckoutEmail";
@@ -9,8 +11,9 @@ import CheckoutPaymetMethod from "../Checkout/CheckoutPaymentMethod";
 import CheckoutCouponCode from "../Checkout/CouponCode";
 import UserShippingaddressdetail from "../User/User-Shppingaddressdetail";
 import "../style/partials/_checkout.scss";
+import { withRouter } from "react-router-dom";
 
-class Checkout extends Component {
+class Checkout extends checkoutApp {
   render() {
     return (
       <div id="page_wrapper">
@@ -70,9 +73,16 @@ class Checkout extends Component {
                     </div>
                   </div>
                   <div className="checkout_panel_ordersummary box1">
-                    <button className="btn btn-default btn-bg place_order">
-                      PLACE ORDER
-                    </button>
+                    {this.state.loading
+                      ?
+                      <button disabled className="btn btn-default btn-bg place_order">
+                        PLEASE WAIT...
+                      </button>
+                      :
+                      <button type="button" onClick={this.placeOrder} disabled={!this.props.isValidCheckout} className="btn btn-default btn-bg place_order">
+                        PLACE ORDER
+                      </button>
+                    }
                   </div>
                 </div>
               </div>
@@ -85,4 +95,4 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+export default connect(checkoutApp.mapStateToProps, checkoutApp.mapDispatchToProps)(withRouter(Checkout));
