@@ -17,6 +17,7 @@ import MyAccInfo from '../pages/MyAccInfo';
 import MyProductReview from '../pages/MyProductReview';
 import ForgotPassword from '../pages/ForgotPassword';
 import Checkout from '../pages/Checkout';
+import PrivateRoute from "./PrivateRoute";
 
 const MainRouter = () => {
     return (
@@ -28,14 +29,14 @@ const MainRouter = () => {
                             <Switch>
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/checkout/cart/" component={Cart} />
-                                <Route exact path="/login" component={Login} />
-                                <Route exact path="/myaccount" component={MyAccount} />
-                                <Route exact path="/mywishlist" component={MyWishlist} />
+                                <Route exact path="/customer/account/login/" component={Login} />
+                                <PrivateRoute exact path="/myaccount" component={MyAccount} />
+                                <PrivateRoute exact path="/mywishlist" component={MyWishlist} />
                                 <Route exact path="/register" component={Register} />
-                                <Route exact path="/myorders" component={MyOrders} />
+                                <PrivateRoute exact path="/myorders" component={MyOrders} />
                                 <Route exact path="/mydownloadableproducts" component={MyDownloadableProduts} />
-                                <Route exact path="/myaddressbook" component={MyAddressBook} />
-                                <Route exact path="/myaccountinfo" component={MyAccInfo} />
+                                <PrivateRoute exact path="/myaddressbook" component={MyAddressBook} />
+                                <PrivateRoute exact path="/myaccountinfo" component={MyAccInfo} />
                                 <Route exact path="/myproductreview" component={MyProductReview} />
                                 <Route exact path="/forgotpassword" component={ForgotPassword} />
                                 <Route exact path="/checkout" component={Checkout} />

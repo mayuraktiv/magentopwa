@@ -29,7 +29,10 @@ class authApp extends Component {
     }
 
     static mapStateToProps = state => {
-        return {};
+        return {
+            user_status: state.db.user_status,
+            userdata: state.db.userdata
+        };
     }
 
     static mapDispatchToProps = (dispatch) => {

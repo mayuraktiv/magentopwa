@@ -5,7 +5,7 @@ import AuthContext from "./AuthContext";
 class AuthProvider extends authApp {
     render() {
         return (
-            <AuthContext.Provider value={null} {...this.props} />
+            <AuthContext.Provider value={{ userdata: this.props.userdata, user_status: this.props.user_status }} {...this.props} />
         );
     }
 }
