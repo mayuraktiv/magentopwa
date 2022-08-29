@@ -1,5 +1,6 @@
 import localStorageKeys from "../constants/localStorageKeys";
 import fetchRequest from "../lib/fetchRequest";
+import mergeCartRequest from "./mergeCartRequest";
 import userProfileRequest from "./userProfileRequest";
 
 const loginRequest = {};
@@ -7,13 +8,13 @@ const loginRequest = {};
 loginRequest.login = async (data) => {
   const request = JSON.stringify({
     query: `mutation {
-            generateCustomerToken(
-              email: "${data.email}"
-              password: "${data.password}"
-            ) {
-              token              
-            }
-          }`,
+      generateCustomerToken(
+        email: "${data.email}"
+        password: "${data.password}"
+      ) {
+        token              
+      }
+    }`,
   });
 
   let res = await fetchRequest.executePostFetch(request);
@@ -24,7 +25,13 @@ loginRequest.login = async (data) => {
       res.data.generateCustomerToken.token
     );
     profile = await userProfileRequest.getUserProfile();
-    console.log("profile---->", profile);
+    if(profile.cart_details){
+      const cart_details = await mergeCartRequest.mergeCart();
+      console.log("addLoginUser---->", cart_details);
+      if(cart_details) {
+        profile['cart_details'] = cart_details;
+      }
+    }
   }
 
   return profile;

@@ -75,9 +75,8 @@ class LoginApp extends Component {
   addLoginUser = async (data) => {
     this.setState({ loading: true });
     const profile = await loginRequest.login(data);
-    console.log("addLoginUser--->", profile);
-
     if (profile) {
+      console.log("addLoginUser---->", profile);
       let nodes = {};
       let nodeValues = {};
       nodes["cart_details"] = "cart_details";
