@@ -24,6 +24,8 @@ userprofileRequest.getUserProfile = async () => {
           postcode
           country_code
           telephone
+          default_billing
+          default_shipping
         }
       }
       customerCart {

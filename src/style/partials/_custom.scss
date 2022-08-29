@@ -119,6 +119,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
     transition: all 300ms;
     padding: 0 36px;
     border-width: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-style: solid;
     text-align: center;
     &:focus {
@@ -654,6 +657,14 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:act
 
 .disabled {
     pointer-events: none;
+}
+
+a.icon {
+    color: #fff;
+}
+
+.d_flex {
+    display: flex;
 }
 
 // .class_tooltip {

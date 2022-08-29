@@ -76,7 +76,6 @@ class LoginApp extends Component {
     this.setState({ loading: true });
     const profile = await loginRequest.login(data);
     if (profile) {
-      console.log("addLoginUser---->", profile);
       let nodes = {};
       let nodeValues = {};
       nodes["cart_details"] = "cart_details";
@@ -88,7 +87,9 @@ class LoginApp extends Component {
       nodes["user_status"] = "user_status";
       nodeValues["user_status"] = true;
       this.props.storeData(nodes, nodeValues);
+      this.props.afterLogin();
     }
+    this.setState({ loading: false });
   };
 
   static mapStateToProps = (state,ownProps) => {

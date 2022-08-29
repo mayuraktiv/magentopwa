@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CategryMenu from './CategoryMenu';
 import BlockSearch from './BlockSearch'
-import IconMenu from './IconMenu'
+import UserIcon from './UserIcon'
 
 
 export default class BottomHeader extends Component {
@@ -16,7 +16,7 @@ export default class BottomHeader extends Component {
                         <div className="col-9 middle-header-content-right">
                             <div className="search-section">
                                 <BlockSearch></BlockSearch>
-                                <IconMenu></IconMenu>
+                                <UserIcon/>
                             </div>
                         </div>
                     </div>

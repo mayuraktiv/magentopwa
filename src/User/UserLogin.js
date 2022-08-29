@@ -1,5 +1,6 @@
 import LoginApp from "../controllers/apps/LoginApp";
 import { connect } from "react-redux";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class Userlogin extends LoginApp {
   render() {
@@ -39,9 +40,16 @@ class Userlogin extends LoginApp {
             </div>
             <div className="actions-toolbar">
               <div className="primary">
-                <button type="submit" class="btn btn-default">
-                  <span>Sign In</span>
-                </button>
+                {this.state.loading
+                  ?
+                  <button type="button" class="btn btn-default">
+                    <CircularProgress size={25} color="#000"/>
+                  </button>
+                  :
+                  <button type="submit" class="btn btn-default">
+                    <span>Sign In</span>
+                  </button>
+                }
               </div>
               <div className="secondary">
                 <span>New User?</span>

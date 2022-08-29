@@ -30,12 +30,12 @@ const MainRouter = () => {
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/checkout/cart/" component={Cart} />
                                 <Route exact path="/customer/account/login/" component={Login} />
-                                <PrivateRoute exact path="/myaccount" component={MyAccount} />
-                                <PrivateRoute exact path="/mywishlist" component={MyWishlist} />
+                                <PrivateRoute exact path="/customer/account/" component={MyAccount} />
+                                <PrivateRoute exact path="/wishlist/" component={MyWishlist} />
                                 <Route exact path="/register" component={Register} />
-                                <PrivateRoute exact path="/myorders" component={MyOrders} />
+                                <PrivateRoute exact path="/sales/order/history/" component={MyOrders} />
                                 <Route exact path="/mydownloadableproducts" component={MyDownloadableProduts} />
-                                <PrivateRoute exact path="/myaddressbook" component={MyAddressBook} />
+                                <PrivateRoute exact path="/customer/address/" component={MyAddressBook} />
                                 <PrivateRoute exact path="/myaccountinfo" component={MyAccInfo} />
                                 <Route exact path="/myproductreview" component={MyProductReview} />
                                 <Route exact path="/forgotpassword" component={ForgotPassword} />

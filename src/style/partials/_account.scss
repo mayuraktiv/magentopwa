@@ -2,31 +2,38 @@
 
 .myaccount {
     font-family: $fontfamily;
+
     .page-main {
         margin-top: 40px;
         margin-bottom: 40px;
     }
+
     .columns {
         display: flex;
     }
+
     .sidebar-main {
-        flex:0 0 25%;
-        max-width:25%;
+        flex: 0 0 25%;
+        max-width: 25%;
         padding-right: 30px;
     }
+
     .column.main {
-        flex:0 0 75%;
+        flex: 0 0 75%;
         max-width: 75%;
     }
+
     h5 {
         text-transform: uppercase;
         font-weight: $fontWeight600;
         margin-bottom: 20px;
     }
+
     h4 {
         color: $fontColor;
     }
 }
+
 .sidebar-main {
     .account-nav-title {
         font-size: 18px;
@@ -34,105 +41,134 @@
         color: $themePrimaryColor;
         position: relative;
         display: block;
-        padding-bottom:2px;
+        padding-bottom: 2px;
         margin-bottom: 25px;
+
         &:after {
             content: "";
             height: 2px;
             width: 60px;
             position: absolute;
             bottom: 0;
-            background-color:$themePrimaryColor;
+            background-color: $themePrimaryColor;
             left: 0;
         }
     }
+
     ul {
         padding-left: 0px;
     }
+
     li {
         a {
             display: block;
             padding: 10px 0;
-            color:$a_fontColor;  
+            color: $a_fontColor;
+
             &:hover {
                 color: $fontHoverColor;
-            }      
+            }
         }
+
         a.current {
             color: $fontHoverColor;
             font-weight: $fontWeight600;
         }
     }
 }
+
 .block-dashboard-info {
     display: flex;
     margin-bottom: 60px;
+
     .box-information {
         flex: 0 0 50%;
         max-width: 50%;
     }
+
     .box-newsletter {
         flex: 0 0 50%;
         max-width: 50%;
     }
+
     .change-password {
         margin-right: 10px;
     }
 }
+
 .block-dashboard-addresses {
     .box-action {
         display: inline-flex;
         flex-direction: column;
     }
+
     .edit-address {
         margin-bottom: 10px;
         width: fit-content;
     }
+
     .block-content {
         display: flex;
     }
-    .box-billing-address,.box-shipping-address {
+
+    .box-billing-address,
+    .box-shipping-address {
         flex: 0 0 50%;
         max-width: 50%;
     }
 }
+
 .block-dashboard-orders {
     margin-top: 40px;
+
     .all-orders {
         th {
             font-size: 16px;
         }
-        table th,td {
+
+        table th,
+        td {
             border: 0px;
         }
-        thead,tbody {
+
+        thead,
+        tbody {
             border-bottom: 1px solid #eee;
         }
     }
+
     table {
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0;
         max-width: 100%;
+
         th {
             text-transform: uppercase;
         }
-        th,td {
-            border:1px solid #ddd;
+
+        th,
+        td {
+            border: 1px solid #ddd;
             padding: 15px;
             text-align: center;
             width: auto;
         }
-        td,a {
+
+        td,
+        a {
             color: $fontColor;
         }
+
         .price {
             font-size: $font16;
             color: #2a2a2a
         }
     }
+
     .action.view {
         position: relative;
+
         &:after {
             content: "|";
             display: inline-block;
@@ -140,92 +176,118 @@
         }
     }
 }
+
 .message.empty {
     padding: 11px 20px 11px 0px;
     background: $msgbgColor;
     color: $themePrimaryColor;
     display: flex;
+
     .material-icons {
         color: #31708f;
-        margin-left:15px;
-        margin-right:5px;
+        margin-left: 15px;
+        margin-right: 5px;
     }
 }
+
 .actions-toolbar-form {
     margin-top: 20px;
     border-top: 1px solid #eee;
     padding-top: 20px;
 }
+
 .control-buttons .btn {
     border-radius: 0px;
     width: 100%;
     padding: 0 15px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
-.add-all,.add-address-btn,.save {
+
+.add-all,
+.add-address-btn,
+.save {
     background-color: $themePrimaryColor;
-    color:$whiteColor;
+    color: $whiteColor;
+
     &:hover {
         background-color: $fontHoverColor;
         color: $whiteColor;
     }
 }
+
 .save {
     border-radius: 0px;
 }
+
 .add-address-btn {
-    margin-left:10px;
+    margin-left: 10px;
 }
+
 .control-buttons {
-    margin-top:40px;
+    margin-top: 40px;
 }
+
 .myaddressbook {
     .block-addresses {
         display: flex;
         margin-bottom: 40px;
-        .block-addresses-default,.block-addresses-list {
-            flex:0 0 50%;
+
+        .block-addresses-default,
+        .block-addresses-list {
+            flex: 0 0 50%;
             max-width: 50%;
         }
+
         .box-address-billing {
             margin-bottom: 20px;
         }
+
         .block-addresses-list {
             padding-left: 10px;
         }
     }
 }
+
 .fieldset.password {
     margin-top: 15px;
 }
+
 .form-edit-account .actions-toolbar-form {
     display: flex;
+
     .primary {
         margin-right: 25px;
     }
 }
+
 .block-reviews-dashboard {
     margin-top: 40px;
+
     ul {
         padding-left: 0px;
     }
+
     .product-name a {
         color: #8e8e8e;
     }
 }
+
 .block-title {
     display: flex;
     align-items: center;
+
     .action.view {
         margin-bottom: 12px;
         margin-left: 20px;
     }
 }
+
 .block-reviews-dashboard {
-    .starrating > label:before {
+    .starrating>label:before {
         font-size: 16px;
     }
 }
+
 .table-reviews {
     table {
         width: 100%;
@@ -233,21 +295,26 @@
         border-spacing: 0;
         max-width: 100%;
     }
+
     thead {
         border-bottom: 1px solid #eee;
     }
+
     th {
         font-size: 16px;
         padding: 15px;
         text-align: center;
         width: auto;
     }
+
     .table thead th {
         border: 0px;
     }
+
     tbody {
         border-bottom: 1px solid #eee;
     }
+
     td {
         border: 0px;
         color: #878787;
@@ -255,75 +322,96 @@
         padding: 15px;
         text-align: center;
         width: auto;
+
         a {
             color: #878787;
         }
     }
-    .starrating > label {
+
+    .starrating>label {
         margin-bottom: 0px;
+
         &:before {
-            font-size:10px;
+            font-size: 10px;
         }
     }
+
     .rating-summary {
         display: inline-block;
     }
 }
+
 @media(max-width:1024px) {
     .myorder {
         .block-dashboard-orders {
             margin-top: 0px;
         }
     }
+
     .myaccount {
         .columns {
             flex-direction: column;
             flex-flow: column-reverse;
         }
+
         .column.main {
             margin-bottom: 40px;
         }
-        .column.main,.sidebar-main {
+
+        .column.main,
+        .sidebar-main {
             flex: 0 0 100%;
             max-width: 100%;
         }
     }
 }
+
 @media(max-width:767px) {
     .block-dashboard-info {
         flex-direction: column;
         margin-bottom: 40px;
+
         .box-information {
             flex: 0 0 100%;
             max-width: 100%;
         }
+
         .box-newsletter {
             padding: 0px;
-            margin-top:20px;
+            margin-top: 20px;
         }
     }
+
     .block-content {
         flex-direction: column;
-        .box-billing-address,.box-shipping-address {
+
+        .box-billing-address,
+        .box-shipping-address {
             flex: 0 0 100%;
             max-width: 100%;
         }
+
         .box-shipping-address {
             margin-top: 20px;
         }
     }
-    .block-dashboard-orders,.table-reviews {
+
+    .block-dashboard-orders,
+    .table-reviews {
         thead {
             display: none;
         }
+
         tbody tr {
             display: flex;
             flex-direction: column;
             margin-bottom: 10px;
+
             td {
                 border: 0px;
                 padding: 5px 0px;
                 text-align: left;
+
                 &::before {
                     padding-right: 10px;
                     content: attr(data-th) ': ';
@@ -340,12 +428,15 @@
     .myaddressbook {
         .block-addresses {
             flex-direction: column;
+
             .block-addresses-list {
                 padding-left: 0px;
             }
-            .block-addresses-list,.block-addresses-default {
+
+            .block-addresses-list,
+            .block-addresses-default {
                 flex: 0 0 100%;
-                max-width:100%;
+                max-width: 100%;
                 margin-top: 20px;
             }
         }
@@ -356,23 +447,27 @@
     .block-title {
         flex-direction: column;
         align-items: flex-start;
+
         .action.view {
             margin-left: 0px;
         }
     }
+
     .myaddressbook {
         .actions-toolbar-form {
             display: flex;
             flex-direction: column;
         }
+
         .add-address-btn {
             margin-left: 0px;
             margin-top: 10px;
         }
+
         .actions-toolbar-form {
             .btn {
                 width: max-content;
             }
         }
     }
-}   
+}

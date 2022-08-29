@@ -1,32 +1,38 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import Userlogin from '../User/User-login';
+import UserLogin from '../User/UserLogin';
 import '../style/partials/_form.scss';
 
-export default class Login extends Component {
-    render() {
-        return (
-            <div id="page_wrapper">
-                <div className='block-content'>
-                    <div className="login">
-                        <Header></Header>
-                        <div id="maincontent" className="page-main">
-                            <div className='columns frame'>
-                                <div className='column main'>
-                                    <div className='block-title'>
-                                        <h5>Sign In</h5>
-                                    </div>
-                                    <Userlogin></Userlogin> 
+const Login = (props) => {
+    const afterLogin = () => {
+        let path = "/";
+        if (props.location?.state?.redirectPath?.length > 0) {
+            path = props.location.state.redirectPath;
+        }
+        props.history.replace(path);
+    }
+    return (
+        <div id="page_wrapper">
+            <div className='block-content'>
+                <div className="login">
+                    <Header />
+                    <div id="maincontent" className="page-main">
+                        <div className='columns frame'>
+                            <div className='column main'>
+                                <div className='block-title'>
+                                    <h5>Sign In</h5>
                                 </div>
+                                <UserLogin afterLogin={afterLogin} />
                             </div>
                         </div>
-                        <Footer></Footer>
                     </div>
+                    <Footer />
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
+
+export default Login;
 
