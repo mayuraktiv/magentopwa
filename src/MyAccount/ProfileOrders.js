@@ -32,7 +32,7 @@ class ProfileOrders extends myOrdersApp {
                                         </thead>
                                         <tbody>
                                             {this.state.orders.map(item => (
-                                                <tr>
+                                                <tr key={`order-${item.order_number}`}>
                                                     <td data-th="Order #" className="col id">
                                                         {item.order_number}
                                                     </td>

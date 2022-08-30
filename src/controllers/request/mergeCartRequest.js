@@ -2,6 +2,7 @@ import getCartId from "../lib/getCartId";
 import fetchRequest from "../lib/fetchRequest";
 import cartResponse from "../response/cartResponse";
 import graphQlQuery from "../lib/graphQlQuery";
+import localStorageKeys from "../constants/localStorageKeys";
 
 const mergeCartRequest = {};
 
@@ -20,7 +21,7 @@ mergeCartRequest.mergeCart = async () => {
     if (res?.data?.mergeCarts) {
         cartData = cartResponse.parse(res.data.mergeCarts);
         if(cartData?.id?.length > 0) {
-            localStorage.setItem("cart_id", cartData.id);
+            localStorage.setItem(localStorageKeys.CART_ID, cartData.id);
         }
     }
     return cartData

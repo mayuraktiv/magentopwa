@@ -28,6 +28,13 @@ fetchRequest.executePostFetch = async (request) => {
         throw new Error(message);
     }
     const data = await response.json();
+    if (data?.errors?.length > 0) {
+        const authError = data.errors.find(item => item.extensions.category === "graphql-authorization");
+        if (authError) {
+            await localStorage.clear();
+            window.location.href = "/";
+        }
+    }
     return data;
 }
 
@@ -37,7 +44,7 @@ fetchRequest.getHeaders = () => {
     const authorizationToken = localStorage.getItem(localStorageKeys.AUTHORIZATION_TOKEN)
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Accept", "application/json");
-    if(authorizationToken?.length > 0) {
+    if (authorizationToken?.length > 0) {
         myHeaders.append("Authorization", `Bearer ${authorizationToken}`);
     }
     return myHeaders

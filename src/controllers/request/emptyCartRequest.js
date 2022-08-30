@@ -1,3 +1,4 @@
+import localStorageKeys from "../constants/localStorageKeys";
 import fetchRequest from "../lib/fetchRequest";
 
 const emptyCartRequest = {};
@@ -9,7 +10,7 @@ emptyCartRequest.createEmptyCart = async () => {
 
     let res = await fetchRequest.executePostFetch(request);
     if(res?.data?.createEmptyCart) {
-        localStorage.setItem("cart_id", res.data.createEmptyCart);
+        localStorage.setItem(localStorageKeys.CART_ID, res.data.createEmptyCart);
     }
     return res
 };

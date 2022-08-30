@@ -92,20 +92,8 @@ class LoginApp extends Component {
     this.setState({ loading: false });
   };
 
-  static mapStateToProps = (state,ownProps) => {
-    console.log("object1",state.db.history.path)
-    let profile = [];
-    let userdata={}
-    if (state?.db?.userdata?.addresses?.length > 0) {
-      profile = state.db.userdata.addresses;
-    }
-    if (state?.db?.userdata?.email?.length > 0) {
-      profile = state.db.userdata.email;
-    }
-    return {
-      profile,
-      userdata
-    };
+  static mapStateToProps = state => {
+    return {};
   };
 
   static mapDispatchToProps = (dispatch) => {
