@@ -32,13 +32,13 @@ const MainRouter = () => {
                                 <Route exact path="/customer/account/login/" component={Login} />
                                 <PrivateRoute exact path="/customer/account/" component={MyAccount} />
                                 <PrivateRoute exact path="/wishlist/" component={MyWishlist} />
-                                <Route exact path="/register" component={Register} />
+                                <Route exact path="/customer/account/create/" component={Register} />
                                 <PrivateRoute exact path="/sales/order/history/" component={MyOrders} />
                                 <Route exact path="/mydownloadableproducts" component={MyDownloadableProduts} />
                                 <PrivateRoute exact path="/customer/address/" component={MyAddressBook} />
                                 <PrivateRoute exact path="/myaccountinfo" component={MyAccInfo} />
                                 <Route exact path="/myproductreview" component={MyProductReview} />
-                                <Route exact path="/forgotpassword" component={ForgotPassword} />
+                                <Route exact path="/customer/account/forgotpassword/" component={ForgotPassword} />
                                 <Route exact path="/checkout" component={Checkout} />
                                 <Route path="/*" component={UrlResolver} />
                             </Switch>

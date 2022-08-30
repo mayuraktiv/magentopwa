@@ -27,7 +27,6 @@ loginRequest.login = async (data) => {
     profile = await userProfileRequest.getUserProfile();
     if(profile.cart_details){
       const cart_details = await mergeCartRequest.mergeCart();
-      console.log("addLoginUser---->", cart_details);
       if(cart_details) {
         profile['cart_details'] = cart_details;
       }

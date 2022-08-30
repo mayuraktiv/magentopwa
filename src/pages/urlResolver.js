@@ -3,19 +3,22 @@ import { connect } from "react-redux";
 import urlResolverApp from "../controllers/apps/urlResolverApp";
 import ProductDetail from "./productDetail";
 import ProductListing from "./productListing";
-
+import CmsDetail from './CmsDetail'
 class UrlResolver extends urlResolverApp {
     render() {
         return (
             <Fragment>
-                {!this.state.loading 
+                {!this.state.loading
                     ?
                     <Fragment>
                         {this.state.urlInfo?.page_type === "CATEGORY" &&
-                            <ProductListing urlData={this.state.urlInfo} {...this.props}/>
+                            <ProductListing urlData={this.state.urlInfo} {...this.props} />
                         }
                         {this.state.urlInfo?.page_type === "PRODUCT" &&
-                            <ProductDetail urlData={this.state.urlInfo} {...this.props}/>
+                            <ProductDetail urlData={this.state.urlInfo} {...this.props} />
+                        }
+                        {this.state.urlInfo?.page_type === "CMS" &&
+                            <CmsDetail urlData={this.state.urlInfo} {...this.props} />
                         }
                     </Fragment>
                     :
