@@ -8,18 +8,23 @@ import AddToCart from './AddToCart';
 import ProImage from './ProImage';
 
 const ProGridBoxWishlist = ({ productData }) => {
-
+console.log(productData,"productData")
         return (
-            <div className={classnames('product_grid_box product_col', this.props.className)}>
+            <div className={classnames('product_grid_box product_col')}>
                 <div className="product_grid_image">
-                <ProImage url_key={productData.url_key} url={productData.media_gallery.thumbnail.url}></ProImage>
+                    <ProImage/>
+                {/* <ProImage url_key={productData.url_key} url={productData.media_gallery.thumbnail.url}></ProImage> */}
                 <WishList className="wish_active" />
-                <AddToCart sku={productData.sku} pageType="product_list" />
+                {/* <AddToCart sku={productData.sku} pageType="product_list" /> */}
                 </div>
                 <div className="product_grid_content">
-                <ProName url_key={productData.url_key}>{productData.name}</ProName>
+                {/* <ProName url_key={productData.url_key}>{productData.name}</ProName> */}
+                <ProName />
+
+                <AddToCart />
+
                     <div className="grid_price_block">
-                    <Price prices={productData.prices}></Price>
+                    {/* <Price prices={productData.prices}></Price> */}
                     </div>
                     <div className='field comment-box'>
                     <label className="label">

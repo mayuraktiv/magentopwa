@@ -1,6 +1,7 @@
 import LoginApp from "../controllers/apps/LoginApp";
 import { connect } from "react-redux";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { Link } from "react-router-dom";
 
 class Userlogin extends LoginApp {
   render() {
@@ -22,6 +23,9 @@ class Userlogin extends LoginApp {
                   onChange={this.valueChangeHandler}
                 />
               </div>
+              {!this.state.validation.email.valid && (
+                <div className="input-error-message">Required</div>
+              )}
             </div>
             <div className="field password required">
               <label className="label" for="password">
@@ -35,31 +39,45 @@ class Userlogin extends LoginApp {
                   className="input-text"
                   value={this.state.form.password}
                   onChange={this.valueChangeHandler}
-                ></input>
+                />
               </div>
+              {!this.state.validation.password.valid && (
+                <div className="input-error-message">Required</div>
+              )}
             </div>
             <div className="actions-toolbar">
               <div className="primary">
-                {this.state.loading
-                  ?
-                  <button type="button" class="btn btn-default">
-                    <CircularProgress size={25} color="#000"/>
+                {this.state.loading ? (
+                  <button type="button" className="btn btn-default">
+                    <CircularProgress size={25} color="#000" />
                   </button>
-                  :
-                  <button type="submit" class="btn btn-default">
+                ) : (
+                  <button type="submit" className="btn btn-default">
                     <span>Sign In</span>
                   </button>
-                }
+                )}
               </div>
               <div className="secondary">
                 <span>New User?</span>
                 <span>
-                  <a href="/register" className="custom_link">
+                  <a
+                    onClick={() =>
+                      this.props.replacePath("/customer/account/create/")
+                    }
+                    className="custom_link"
+                  >
                     Sign Up
                   </a>
                 </span>
                 <span>
-                  <a href="/forgotpassword" className="custom_link">
+                  <a
+                    onClick={() =>
+                      this.props.replacePath(
+                        "/customer/account/forgotpassword/"
+                      )
+                    }
+                    className="custom_link"
+                  >
                     Forgot Password
                   </a>
                 </span>
@@ -72,4 +90,7 @@ class Userlogin extends LoginApp {
   }
 }
 
-export default connect(LoginApp.mapStateToProps, LoginApp.mapDispatchToProps)(Userlogin);
+export default connect(
+  LoginApp.mapStateToProps,
+  LoginApp.mapDispatchToProps
+)(Userlogin);
