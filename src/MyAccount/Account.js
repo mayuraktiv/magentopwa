@@ -1,11 +1,11 @@
 import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../controllers/contexts/auth/AuthContext";
+import ProfileOrders from "./ProfileOrders";
 import MainSidebar from "./MainSidebar";
 
 const Account = () => {
     const { userdata } = useContext(AuthContext);
-    console.log("userdata---->", userdata);
     return (
         <div className="columns frame">
             <MainSidebar />
@@ -103,57 +103,7 @@ const Account = () => {
                             </div>
                         }
                     </div>
-                    <div className="block-dashboard-orders">
-                        <div className="block-title-Account">
-                            <h5>Recent Orders</h5>
-                        </div>
-                        <div className="block-content">
-                            <div className="table-wrapper orders-recent">
-                                <table className="table table-order-items">
-                                    <thead>
-                                        <tr>
-                                            <th className="col id">Order #</th>
-                                            <th className="col date">Date</th>
-                                            <th className="col shipping">Ship To</th>
-                                            <th className="col total">Order Total</th>
-                                            <th className="col status">Status</th>
-                                            <th className="col actions">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td data-th="Order #" className="col id">
-                                                7000000007
-                                            </td>
-                                            <td data-th="Date" className="col date">
-                                                6/1/22
-                                            </td>
-                                            <td data-th="Ship To" className="col shipping">
-                                                test test
-                                            </td>
-                                            <td data-th="Order Total" className="col total">
-                                                <span className="price">$559.00</span>
-                                            </td>
-                                            <td data-th="Status" className="col status">
-                                                Pending
-                                            </td>
-                                            <td data-th="Actions" className="col actions">
-                                                <a href="#" className="action view">
-                                                    <span>View Order</span>
-                                                </a>
-                                                <a href="#" className="action order">
-                                                    <span>Reorder</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <a href="#" className="btn btn-secondary btn-xs btn-bg view">
-                                View All
-                            </a>
-                        </div>
-                    </div>
+                    <ProfileOrders />
                 </div>
             }
         </div>
