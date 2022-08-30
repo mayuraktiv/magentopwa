@@ -8,7 +8,7 @@ urlResolverResponse.parse = (data) => {
             urlInfo["page_type"] = "CATEGORY";
             urlInfo["uid"] = urlInfo.entity_uid;
         }
-        else if(urlInfo.type === "CMS") {
+        else if(urlInfo.type === "CMS_PAGE") {
             urlInfo["page_type"] = "CMS";
             urlInfo["page_id"] = urlInfo.entity_uid;
         }
