@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 
 export default class ThirdFooter extends Component {
     render() {
@@ -8,12 +9,10 @@ export default class ThirdFooter extends Component {
                  <h6 className="mb-2">Infomation</h6>
                 <div className="footer-information">
                     <ul className="menu pl-0">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Shipping & Delivery</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><Link to="/about-us/">About Us</Link></li>
+                        <li><Link to="/contact/">Contact Us</Link></li>
+                        <li><Link to="/customer-service">Customer Service</Link></li>
+                        <li><Link to="/privacy-policy-cookie-restriction-mode">Privacy Policy</Link></li>
                     </ul>
                 </div>
             </div>
