@@ -11,7 +11,7 @@ const validateField = (rule, value) => {
         isValid = !isNaN(value);
         break;
       case "email":
-        validateEmail(value);
+        isValid = validateEmail(value);
         break;
       default:
         isValid = true;

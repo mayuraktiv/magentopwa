@@ -10,7 +10,6 @@ userProfileResponse.parse = (data) => {
   if (data.customerCart) {
     profile["cart_details"] = cartParser.parse(data.customerCart);
   }
-  console.log("userProfileResponse->", profile);
   return profile;
 };
 
