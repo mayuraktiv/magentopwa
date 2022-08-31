@@ -853,3 +853,10 @@ a.icon {
 .custom_link {
     cursor: pointer;
 }
+
+.center_loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 182px);
+}

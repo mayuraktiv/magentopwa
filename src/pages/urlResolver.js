@@ -1,9 +1,13 @@
 import { Fragment } from "react";
 import { connect } from "react-redux";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 import urlResolverApp from "../controllers/apps/urlResolverApp";
 import ProductDetail from "./productDetail";
 import ProductListing from "./productListing";
 import CmsDetail from './CmsDetail'
+
+import CenterLoader from "../loader/CenterLoader";
 class UrlResolver extends urlResolverApp {
     render() {
         return (
@@ -22,7 +26,13 @@ class UrlResolver extends urlResolverApp {
                         }
                     </Fragment>
                     :
-                    <div>Loading...</div>
+                    <div id="page_wrapper">
+                        <Header />
+                        <div id="maincontent" className="page-main">
+                            <CenterLoader />
+                        </div>
+                        <Footer />
+                    </div>
                 }
             </Fragment>
         )

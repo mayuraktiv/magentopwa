@@ -47,6 +47,9 @@ class productListApp extends Component {
         if (!this.props.productListingData) {
             this.setState({ loading: true });
         }
+        else {
+            this.setState({ loading: false });
+        }
         let data = {
             ...this.state,
             ...this.props.urlData,
@@ -75,6 +78,7 @@ class productListApp extends Component {
             nodeValues["history"] = historyData;
             this.props.storeData(nodes, nodeValues);
         }
+        this.setState({ loading: false });
     };
 
     changeView = (value) => {

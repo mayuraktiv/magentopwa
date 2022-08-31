@@ -18,6 +18,9 @@ import MyProductReview from '../pages/MyProductReview';
 import ForgotPassword from '../pages/ForgotPassword';
 import Checkout from '../pages/Checkout';
 import PrivateRoute from "./PrivateRoute";
+import AddAddress from "../pages/AddAddress";
+import EditAddress from "../pages/EditAddress";
+import OrderSuccess from "../pages/OrderSuccess";
 
 const MainRouter = () => {
     return (
@@ -30,12 +33,15 @@ const MainRouter = () => {
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/checkout/cart/" component={Cart} />
                                 <Route exact path="/customer/account/login/" component={Login} />
+                                <Route exact path="/checkout/onepage/success/" component={OrderSuccess} />
                                 <PrivateRoute exact path="/customer/account/" component={MyAccount} />
                                 <PrivateRoute exact path="/wishlist/" component={MyWishlist} />
                                 <Route exact path="/customer/account/create/" component={Register} />
                                 <PrivateRoute exact path="/sales/order/history/" component={MyOrders} />
                                 <Route exact path="/mydownloadableproducts" component={MyDownloadableProduts} />
                                 <PrivateRoute exact path="/customer/address/" component={MyAddressBook} />
+                                <PrivateRoute exact path="/customer/address/new/" component={AddAddress} />
+                                <PrivateRoute exact path="/customer/address/edit/id/:id" component={EditAddress} />
                                 <PrivateRoute exact path="/myaccountinfo" component={MyAccInfo} />
                                 <Route exact path="/myproductreview" component={MyProductReview} />
                                 <Route exact path="/customer/account/forgotpassword/" component={ForgotPassword} />

@@ -8,7 +8,7 @@ export default class CartFooter extends Component {
             <div className={classnames('cart-footer card-footer', this.props.className)}>
                 <div className="cart_footer_btns">
                     <Link to="/" className="btn btn-default">Continue Shopping</Link>
-                    <Link to="/" className="btn btn-default">Place Order</Link>
+                    <Link to="/checkout" className="btn btn-default">Place Order</Link>
                 </div>
             </div >
         );

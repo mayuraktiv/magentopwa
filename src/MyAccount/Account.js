@@ -59,9 +59,9 @@ const Account = () => {
                                                         T: {address.telephone}
                                                     </address>
                                                     <div className="box-action">
-                                                        <a href="#" className="edit-address btn btn-secondary btn-xs">
+                                                        <Link to={`/customer/address/edit/id/${address.id}`} className="edit-address btn btn-secondary btn-xs">
                                                             Edit Billing Address
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </Fragment>
                                             }
@@ -87,7 +87,7 @@ const Account = () => {
                                                         T: {address.telephone}
                                                     </address>
                                                     <div className="box-action d_flex">
-                                                        <Link href="#" className="edit-address btn btn-secondary btn-xs">
+                                                        <Link to={`/customer/address/edit/id/${address.id}`} className="edit-address btn btn-secondary btn-xs">
                                                             Edit Shipping Address
                                                         </Link>
                                                     </div>

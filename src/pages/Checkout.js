@@ -12,6 +12,7 @@ import CheckoutCouponCode from "../Checkout/CouponCode";
 import UserShippingaddressdetail from "../User/User-Shppingaddressdetail";
 import "../style/partials/_checkout.scss";
 import { withRouter } from "react-router-dom";
+import { CircularProgress } from "@material-ui/core";
 
 class Checkout extends checkoutApp {
   render() {
@@ -28,7 +29,9 @@ class Checkout extends checkoutApp {
                 </span>
                 <div className="checkout_panel">
                   <div className="checkout_panel_main">
-                    <CheckoutEmail />
+                    {!this.props.user_status &&
+                      <CheckoutEmail />
+                    }
                     <div className="checkout_second_step box1">
                       <h3 className="checkout-title">
                         <span className="mark"></span>
@@ -76,7 +79,7 @@ class Checkout extends checkoutApp {
                     {this.state.loading
                       ?
                       <button disabled className="btn btn-default btn-bg place_order">
-                        PLEASE WAIT...
+                        <CircularProgress size={25} color="#fff" />
                       </button>
                       :
                       <button type="button" onClick={this.placeOrder} disabled={!this.props.isValidCheckout} className="btn btn-default btn-bg place_order">

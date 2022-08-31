@@ -92,26 +92,7 @@ graphQlQuery.categories = () => {
     allCategories {
       list {
         children_count
-        description
-        image
-        meta_description
-        meta_keywords
-        meta_title
-        name
-        parent_uid
-        uid
-        url_key
-        url_path
-      } 
-    }
-  `;
-}
-
-graphQlQuery.categories = () => {
-  return `
-    allCategories {
-      list {
-        children_count
+        position
         description
         image
         meta_description
@@ -346,7 +327,7 @@ graphQlQuery.prepareFilterQuery = (data) => {
 graphQlQuery.prepareSortQuery = (data) => {
   let query = ``;
   if ("product_list_order" in data.appliedFilters) {
-    query = `sort:{${data.appliedFilters["product_list_order"]}: ASC}`;
+    query = `sort:{${data.appliedFilters["product_list_order"]}: DESC}`;
   }
   return query;
 };

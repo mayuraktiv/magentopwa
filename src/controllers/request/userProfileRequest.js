@@ -14,6 +14,7 @@ userprofileRequest.getUserProfile = async () => {
         email
         addresses {
           firstname
+          id
           lastname
           street
           city

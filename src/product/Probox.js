@@ -8,14 +8,16 @@ class ProBox extends proBoxApp {
     render() {
         return (
             <div className='product_box'>
-                <div className="card">
-                    {this.props.type === "grid" &&
-                        <ProGridBox productData={this.props.productData} />
-                    }
-                    {this.props.type === "list" &&
-                        <ProListBox productData={this.props.productData} />
-                    }
-                </div>
+                {this.props.productData &&
+                    <div className="card">
+                        {this.props.type === "grid" &&
+                            <ProGridBox productData={this.props.productData} />
+                        }
+                        {this.props.type === "list" &&
+                            <ProListBox productData={this.props.productData} />
+                        }
+                    </div>
+                }
             </div>
         );
     }

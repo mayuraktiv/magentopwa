@@ -1,22 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.edc0dbee.css",
-    "main.js": "/static/js/main.28cfc102.js",
+    "main.css": "/static/css/main.be546652.css",
+    "main.js": "/static/js/main.b06324e7.js",
     "static/media/cat_menu_img.png": "/static/media/cat_menu_img.9bb52be8b4ebda06a19b.png",
     "static/media/slideImage2.jpg": "/static/media/slideImage2.0692eff4b828b0caaac3.jpg",
     "static/media/digital_laptop.jpg": "/static/media/digital_laptop.9fc24721b5c7a46cfa05.jpg",
-    "static/media/logo2.png": "/static/media/logo2.ecfd99aeab1c3d144452.png",
     "static/media/logo3.png": "/static/media/logo3.90cbb675918b11c97903.png",
     "static/media/deals_digital.jpg": "/static/media/deals_digital.7b3ce93c0860c5b9be14.jpg",
     "static/media/digital_camera.jpg": "/static/media/digital_camera.87df3d87c0b81bf87941.jpg",
     "index.html": "/index.html",
     "static/media/shopping_bag.svg": "/static/media/shopping_bag.b90b59eb79bc704b1404.svg",
     "static/media/shopping_bag_white.svg": "/static/media/shopping_bag_white.a36872083e934e98534b.svg",
-    "main.edc0dbee.css.map": "/static/css/main.edc0dbee.css.map",
-    "main.28cfc102.js.map": "/static/js/main.28cfc102.js.map"
+    "main.be546652.css.map": "/static/css/main.be546652.css.map",
+    "main.b06324e7.js.map": "/static/js/main.b06324e7.js.map"
   },
   "entrypoints": [
-    "static/css/main.edc0dbee.css",
-    "static/js/main.28cfc102.js"
+    "static/css/main.be546652.css",
+    "static/js/main.b06324e7.js"
   ]
 }

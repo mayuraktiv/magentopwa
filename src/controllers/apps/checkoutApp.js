@@ -17,7 +17,6 @@ class checkoutApp extends Component {
     let isValidShippingMethod = false;
     let isValidBillingAddress = false;
     let isValidPaymentMethod = false;
-    console.log("state.db.cart_details--->", state.db.cart_details);
     if (state.db.cart_details?.total_quantity > 0) {
       const cart_details = state.db.cart_details;
       // Validating guest email
@@ -51,7 +50,9 @@ class checkoutApp extends Component {
       isValidCheckout = true;
     }
     return {
-      isValidCheckout
+      isValidCheckout,
+      user_status: state.db.user_status,
+      addresses: state.db.userdata?.addresses?.length > 0 ? state.db.userdata.addresses : []
     };
   };
 
@@ -60,7 +61,10 @@ class checkoutApp extends Component {
     const order = await placeOrderRequest.placeOrder();
     if (order?.order_number?.length > 0) {
       this.props.storeData('cart_details', null);
-      this.props.history.push('/');
+      this.props.history.replace({
+        pathname: '/checkout/onepage/success/',
+        state: { order: order }
+      });
     }
     this.setState({ loading: true });
   }
