@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import FieldQty from './FieldQty';
 import addToCartApp from '../controllers/apps/addToCartApp';
 import { connect } from 'react-redux';
+import { CircularProgress } from '@material-ui/core';
 
 class AddToCart extends addToCartApp {
     render() {
@@ -22,26 +23,10 @@ class AddToCart extends addToCartApp {
                             <span>Add To Cart</span>
                         </button>
                         :
-                        <button className="addcart_btn" type='button'>
-                            <span>Please wait...</span>
+                        <button className="addcart_btn" type='button' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '3px', paddingBottom: '3px' }}>
+                            <CircularProgress color="#fff" size={25} />
                         </button>
                     }
-                    {/* {this.props.params.type === "ac_icon" &&
-                        <button className="addcart_icon" to="#">
-                            <i className="material-icons">add_shopping_cart</i>
-                        </button>
-                    }
-                    {this.props.params.type === "ac_btn" &&
-                        <button className="addcart_btn" to="#">
-                            <span>Add To Cart</span>
-                        </button>
-                    }
-                    {this.props.params.type === "buynow" &&
-                        <button className="addcart_btn" to="/cart" >
-                            <i className="material-icons">shopping_cart</i>
-                            <span>Buy Now</span>
-                        </button>
-                    } */}
                 </div>
             </Fragment>
         );

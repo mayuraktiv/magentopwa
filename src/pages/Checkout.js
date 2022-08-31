@@ -39,6 +39,7 @@ class Checkout extends checkoutApp {
                       </h3>
                       <ShippingAddress />
                     </div>
+
                     <div className="checkout_third_step box1">
                       <h3 className="checkout-title">
                         <span className="mark"></span>
@@ -66,10 +67,6 @@ class Checkout extends checkoutApp {
                         </label>
                       </div>
                       <BillingAddress />
-                      {/* <div className="new-shipping-address-form">
-                        <span className="title">Add New Address</span>
-                      </div>
-                      <UserShippingaddressdetail /> */}
                     </div>
                     <div className="checkout_coupon_code box1">
                       <CheckoutCouponCode />
