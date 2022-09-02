@@ -83,7 +83,7 @@ class UserRegister extends userRegisterApp {
                 />
               </div>
               {!this.state.validation.password.valid && (
-                <div className="input-error-message">Required</div>
+                <div className="input-error-message">Please enter valid password</div>
               )}
             </div>
           </fieldset>

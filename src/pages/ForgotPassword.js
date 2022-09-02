@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
+import Userforgotpassword from '../User/UserForgotpassword';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import Userforgotpassword from '../User/User-forgotpassword';
 import '../style/base.scss';
 import '../style/partials/_form.scss';
 

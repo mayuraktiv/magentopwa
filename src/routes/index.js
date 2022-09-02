@@ -21,7 +21,9 @@ import PrivateRoute from "./PrivateRoute";
 import AddAddress from "../pages/AddAddress";
 import EditAddress from "../pages/EditAddress";
 import OrderSuccess from "../pages/OrderSuccess";
-
+import ChangePassword from "../pages/ChangePassword";
+import EditAccountInfo from "../pages/EditAccountInfo";
+import ShareWishList from "../pages/ShareWishList";
 const MainRouter = () => {
     return (
         <AuthProvider>
@@ -35,7 +37,10 @@ const MainRouter = () => {
                                 <Route exact path="/customer/account/login/" component={Login} />
                                 <Route exact path="/checkout/onepage/success/" component={OrderSuccess} />
                                 <PrivateRoute exact path="/customer/account/" component={MyAccount} />
+                                <PrivateRoute exact path="/customer/account/edit/changepass" component={ChangePassword} />
+                                <PrivateRoute exact path="/customer/account/edit/" component={EditAccountInfo} />
                                 <PrivateRoute exact path="/wishlist/" component={MyWishlist} />
+                                <PrivateRoute exact path="/wishlist/index/share/" component={ShareWishList} />
                                 <Route exact path="/customer/account/create/" component={Register} />
                                 <PrivateRoute exact path="/sales/order/history/" component={MyOrders} />
                                 <Route exact path="/mydownloadableproducts" component={MyDownloadableProduts} />

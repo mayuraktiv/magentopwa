@@ -204,6 +204,26 @@ graphQlQuery.billingAddressQuery = () => {
         }
     `;
 };
+graphQlQuery.wishlists = () =>{
+  return `
+  customer {
+    wishlists {
+      id
+       items_count
+      items_v2 {
+        items {
+          id
+          product {
+            uid
+            name
+            sku
+          }
+        }
+      }
+    }
+  }
+  `
+}
 
 graphQlQuery.shippingAddressQuery = () => {
   return `
@@ -297,6 +317,7 @@ graphQlQuery.countries = () => {
     } 
   `;
 };
+
 
 graphQlQuery.prepareRatingOptionQuery = (data) => {
   return `${Object.keys(data)

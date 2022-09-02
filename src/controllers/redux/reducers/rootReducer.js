@@ -12,7 +12,8 @@ let initialState = {
     searchProducts: [],
     rating_options: [],
     productDetailSlider: [],
-    countries: []
+    countries: [],
+    wishList:[]
 };
 
 const rootReducer = (state = initialState, storeData) => {

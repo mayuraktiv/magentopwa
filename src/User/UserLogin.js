@@ -24,7 +24,7 @@ class Userlogin extends LoginApp {
                 />
               </div>
               {!this.state.validation.email.valid && (
-                <div className="input-error-message">Required</div>
+                <div className="input-error-message">Please enter valid email</div>
               )}
             </div>
             <div className="field password required">
@@ -42,7 +42,7 @@ class Userlogin extends LoginApp {
                 />
               </div>
               {!this.state.validation.password.valid && (
-                <div className="input-error-message">Required</div>
+                <div className="input-error-message">Please enter valid password</div>
               )}
             </div>
             <div className="actions-toolbar">

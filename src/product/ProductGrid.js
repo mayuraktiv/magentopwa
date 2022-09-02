@@ -10,7 +10,7 @@ const ProGridBox = ({ productData }) => {
         <div className='product_grid_box product_col'>
             <div className="product_grid_image">
                 <ProImage url_key={productData.url_key} url={productData.media_gallery.thumbnail.url}></ProImage>
-                <WishList className="wish_active" />
+                <WishList className="wish_active" productData={productData}/>
                 <AddToCart sku={productData.sku} pageType="product_list" />
             </div>
             <div className="product_grid_content">

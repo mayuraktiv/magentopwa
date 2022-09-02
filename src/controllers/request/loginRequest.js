@@ -20,6 +20,7 @@ loginRequest.login = async (data) => {
   let res = await fetchRequest.executePostFetch(request);
   let profile = false;
   if (res.data?.generateCustomerToken?.token) {
+    window.sessionStorage.setItem("password", data.password);
     await localStorage.setItem(
       localStorageKeys.AUTHORIZATION_TOKEN,
       res.data.generateCustomerToken.token

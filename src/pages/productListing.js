@@ -9,7 +9,7 @@ import CenterLoader from '../loader/CenterLoader';
 
 class ProductListing extends productListApp {
     render() {
-        console.log("ProductListing---->", this.state);
+        // console.log("ProductListing---->", this.state);
         return (
             <div id="page_wrapper">
                 <div className="category-page">
